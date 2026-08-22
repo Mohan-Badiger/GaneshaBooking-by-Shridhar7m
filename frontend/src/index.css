@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import url("https://use.typekit.net/fyz7rtn.css");
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-festival-cream: #FAF7F2;
+  --color-festival-creamDark: #F0E9DF;
+  --color-festival-maroon: #5C0612;
+  --color-festival-maroonDark: #3A020B;
+  --color-festival-orange: #D27E58;
+  --color-festival-saffron: #D4AF37;
+  --color-festival-gold: #C5A028;
+  --color-festival-goldLight: #E2C258;
+  --color-festival-dark: #1F1A17;
+  --color-festival-darkLight: #473E3A;
+
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'ivyora-display', serif;
+}
+
+@utility hover-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -8px rgba(122, 28, 28, 0.15);
+  }
+}
+
+@utility shimmer-loader {
+  background: linear-gradient(90deg, #F4ECE1 25%, #EBE1D3 37%, #F4ECE1 63%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@utility form-input {
+  @apply w-full px-4 py-3 bg-festival-cream/30 rounded-2xl text-sm focus:outline-none focus:ring-4 focus:ring-festival-maroon/20 transition-all;
+  border: 1px solid var(--color-festival-creamDark);
+  &:focus {
+    border-color: var(--color-festival-maroon);
+  }
+}
+
+@utility search-input {
+  @apply w-full pl-10 pr-4 py-2.5 bg-festival-cream/30 rounded-2xl text-xs focus:outline-none focus:ring-4 focus:ring-festival-maroon/20 transition-all;
+  border: 1px solid var(--color-festival-creamDark);
+  &:focus {
+    border-color: var(--color-festival-maroon);
+  }
+}
+
+
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-festival-cream text-festival-dark font-sans antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Custom transitions and scroll behaviors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-festival-creamDark;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-festival-maroon/20 rounded;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-festival-maroon/40;
+}
