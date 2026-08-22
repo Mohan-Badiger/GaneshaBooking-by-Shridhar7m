@@ -50,7 +50,7 @@ const Home = () => {
       {/* 1. Hero Section */}
       <section
         className="relative bg-cover bg-center text-white pt-24 pb-28 px-4 overflow-hidden border-b-8 border-festival-gold flex items-center min-h-130"
-        style={{ backgroundImage: `linear-gradient(to right, rgba(28, 6, 9, 0.95) 30%, rgba(28, 6, 9, 0.4) 75%, rgba(28, 6, 9, 0.1) 100%), url('/divine_ganesha_hero.jpg')` }}
+        style={{ backgroundImage: `linear-gradient(to right, rgba(28, 6, 9, 0.95) 30%, rgba(28, 6, 9, 0.4) 75%, rgba(28, 6, 9, 0.1) 100%), url('/divine_ganesha_hero.webp')` }}
       >
         <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
           <div className="lg:col-span-8 space-y-6">
@@ -223,7 +223,7 @@ const Home = () => {
           </div>
           <div className="w-full md:w-80 aspect-4/3 rounded-2xl overflow-hidden border border-festival-creamDark shadow-md">
             <img
-              src="/artisan_clay_ganesha.jpg"
+              src="/artisan_clay_ganesha.webp"
               alt="Artisan sculpting Ganesha"
               className="w-full h-full object-cover"
             />

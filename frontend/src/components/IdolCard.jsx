@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Ruler, ShoppingBag, Eye, Award } from 'lucide-react';
+import { getFullImageUrl } from '../utils/urlHelper';
 
 const IdolCard = ({ idol }) => {
   const { _id, name, code, height, price, images, availability, material, featured } = idol;
@@ -12,15 +13,8 @@ const IdolCard = ({ idol }) => {
     maximumFractionDigits: 0,
   }).format(price);
 
-  // Fallback image if empty
-  const getImageUrl = (url) => {
-    if (!url) return 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800';
-    if (url.startsWith('http')) return url;
-    return `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${url}`;
-  };
-
   const primaryImage = images && images.length > 0
-    ? getImageUrl(images[0])
+    ? getFullImageUrl(images[0])
     : 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800';
 
   return (

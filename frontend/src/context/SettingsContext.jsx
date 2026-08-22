@@ -1,12 +1,13 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { getBaseApiUrl } from '../utils/urlHelper';
 
 const SettingsContext = createContext();
 
 export const useSettings = () => useContext(SettingsContext);
 
 // Setup default axios API base URL based on environment
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = getBaseApiUrl();
 axios.defaults.baseURL = API_URL;
 
 export const SettingsProvider = ({ children }) => {
