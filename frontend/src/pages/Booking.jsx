@@ -196,7 +196,7 @@ Please confirm my booking.`;
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left: Summary panel */}
           <div className="lg:col-span-5 bg-white border border-festival-creamDark rounded-3xl p-6 shadow-sm space-y-5">
-            <h2 className="text-lg font-serif font-black text-festival-maroon border-b border-festival-creamDark pb-3">
+            <h2 className="text-lg font-serif font-medium text-festival-maroon border-b border-festival-creamDark pb-3">
               Booking Summary
             </h2>
             <div className="flex gap-4">
@@ -241,7 +241,7 @@ Please confirm my booking.`;
 
           {/* Right: Booking Form */}
           <div className="lg:col-span-7 bg-white border border-festival-creamDark rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
-            <h2 className="text-xl font-serif font-black text-festival-maroon border-b border-festival-creamDark pb-4">
+            <h2 className="text-xl font-serif font-medium text-festival-maroon border-b border-festival-creamDark pb-4">
               Enter Your Details
             </h2>
 
@@ -416,7 +416,7 @@ Please confirm my booking.`;
           </div>
 
           <div className="space-y-2">
-            <h2 className="text-2xl font-serif font-black text-festival-maroon">Booking Request Prepared!</h2>
+            <h2 className="text-2xl font-serif font-medium text-festival-maroon">Booking Request Prepared!</h2>
             <p className="text-sm text-festival-darkLight/70">
               Your details are ready to be sent. We use WhatsApp to finalize and confirm your Ganesha idol booking.
             </p>

@@ -96,7 +96,7 @@ const IdolDetails = () => {
                 </span>
               )}
             </div>
-            <h1 className="text-3xl md:text-4xl font-serif font-black text-festival-maroon leading-tight">
+            <h1 className="text-2xl md:text-3xl font-serif font-medium text-festival-maroon leading-tight">
               {idol.name}
             </h1>
             <p className="text-sm font-semibold text-festival-darkLight/60">

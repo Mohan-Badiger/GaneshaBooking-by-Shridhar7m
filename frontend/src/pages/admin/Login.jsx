@@ -58,7 +58,6 @@ const Login = () => {
     <div className="max-w-md mx-auto my-20 px-4 sm:px-0 font-sans">
       <div className="bg-white border border-festival-creamDark rounded-3xl p-8 shadow-md space-y-6">
         <div className="text-center space-y-2">
-          <span className="text-3xl">🕉️</span>
           <h1 className="text-2xl font-serif font-black text-festival-maroon">Admin Login</h1>
           <p className="text-xs text-festival-darkLight/60">
             Sign in to manage Ganesha catalogs and business parameters.

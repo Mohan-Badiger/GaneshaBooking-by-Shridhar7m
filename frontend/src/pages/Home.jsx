@@ -48,17 +48,13 @@ const Home = () => {
   return (
     <div className="space-y-20 pb-16 font-sans">
       {/* 1. Hero Section */}
-      <section className="relative bg-linear-to-br from-festival-maroon to-[#400E0E] text-white pt-20 pb-24 px-4 overflow-hidden border-b-8 border-festival-gold">
-        {/* Background decorative mandalas */}
-        <div className="absolute inset-0 opacity-10 flex items-center justify-center select-none pointer-events-none">
-          <span className="text-[25rem] font-serif">🕉️</span>
-        </div>
+      <section className="relative bg-linear-to-br from-festival-maroon to-[#400E0E] text-white pt-20 pb-24 px-4 overflow-hidden border-b-8 border-festival-gold text-center">
 
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
           <span className="inline-block bg-festival-saffron/20 border border-festival-saffron/30 text-festival-saffron text-sm font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
             Eco-Friendly Clay Idols (Shadu Mati)
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif font-black tracking-wide leading-tight text-festival-cream">
+          <h1 className="text-4xl md:text-6xl font-serif font-medium tracking-wide leading-tight text-festival-cream">
             Divine Handcrafted Ganesh Idols for Your Home
           </h1>
           <p className="text-base md:text-xl text-festival-cream/80 max-w-2xl mx-auto font-light leading-relaxed">
@@ -86,7 +82,7 @@ const Home = () => {
       {/* 2. Featured Ganesh Idols */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-xl mx-auto space-y-2">
-          <h2 className="text-3xl md:text-4xl font-serif font-black text-festival-maroon">
+          <h2 className="text-3xl md:text-4xl font-serif font-medium text-festival-maroon">
             Featured Ganesh Idols
           </h2>
           <p className="text-festival-darkLight/70 text-sm md:text-base">
@@ -126,7 +122,7 @@ const Home = () => {
       <section id="about" className="bg-festival-creamDark py-16 border-y border-festival-creamDark shadow-inner">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
-            <h2 className="text-3xl font-serif font-black text-festival-maroon">
+            <h2 className="text-3xl font-serif font-medium text-festival-maroon">
               Why Choose Our Idols?
             </h2>
             <p className="text-festival-darkLight/70 text-sm md:text-base">
@@ -171,7 +167,7 @@ const Home = () => {
       {/* 4. Simple Booking Process */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-xl mx-auto space-y-2">
-          <h2 className="text-3xl font-serif font-black text-festival-maroon">
+          <h2 className="text-3xl font-serif font-medium text-festival-maroon">
             Simple 3-Step Booking
           </h2>
           <p className="text-festival-darkLight/70 text-sm md:text-base">
@@ -204,7 +200,7 @@ const Home = () => {
             <span className="text-xs font-extrabold text-festival-maroon uppercase tracking-wider bg-festival-gold/20 px-3 py-1 rounded">
               Support Local Artisans
             </span>
-            <h2 className="text-3xl font-serif font-black text-festival-maroon">
+            <h2 className="text-3xl font-serif font-medium text-festival-maroon">
               {settings.businessName}
             </h2>
             <p className="text-sm md:text-base text-festival-darkLight leading-relaxed">
@@ -234,7 +230,7 @@ const Home = () => {
       {/* 6. Contact / Location Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-xl mx-auto space-y-2">
-          <h2 className="text-3xl font-serif font-black text-festival-maroon">
+          <h2 className="text-3xl font-serif font-medium text-festival-maroon">
             Visit Our Workshop
           </h2>
           <p className="text-festival-darkLight/70 text-sm md:text-base">
@@ -265,7 +261,7 @@ const Home = () => {
 
           {/* Details Card */}
           <div className="bg-white border border-festival-creamDark rounded-3xl p-8 shadow-sm space-y-6">
-            <h3 className="text-2xl font-serif font-black text-festival-maroon pb-4 border-b border-festival-creamDark">
+            <h3 className="text-2xl font-serif font-medium text-festival-maroon pb-4 border-b border-festival-creamDark">
               Contact Information
             </h3>
 
