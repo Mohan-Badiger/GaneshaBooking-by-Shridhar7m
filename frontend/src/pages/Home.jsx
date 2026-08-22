@@ -48,33 +48,37 @@ const Home = () => {
   return (
     <div className="space-y-20 pb-16 font-sans">
       {/* 1. Hero Section */}
-      <section className="relative bg-linear-to-br from-festival-maroon to-[#400E0E] text-white pt-20 pb-24 px-4 overflow-hidden border-b-8 border-festival-gold text-center">
-
-        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
-          <span className="inline-block bg-festival-saffron/20 border border-festival-saffron/30 text-festival-saffron text-sm font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
-            Eco-Friendly Clay Idols (Shadu Mati)
-          </span>
-          <h1 className="text-4xl md:text-6xl font-serif font-medium tracking-wide leading-tight text-festival-cream">
-            Divine Handcrafted Ganesh Idols for Your Home
-          </h1>
-          <p className="text-base md:text-xl text-festival-cream/80 max-w-2xl mx-auto font-light leading-relaxed">
-            Bring home blessings this festival with our 100% biodegradable, beautifully painted clay Ganesha idols. Handcrafted with devotion by local artisans.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-            <Link
-              to="/idols"
-              className="px-8 py-4 bg-festival-saffron hover:bg-amber-600 text-festival-dark font-extrabold rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 text-center text-sm md:text-base border-2 border-festival-gold"
-            >
-              Explore Ganesh Idols
-            </Link>
-            <a
-              href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=Hello,%20I%20am%20interested%20in%20booking%20a%20Ganesh%20idol.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 bg-transparent hover:bg-white/10 text-white font-bold rounded-2xl border-2 border-white/40 transition-all duration-300 active:scale-95 text-center text-sm md:text-base flex items-center justify-center gap-2"
-            >
-              <MessageSquare className="w-5 h-5 text-emerald-400" /> Book via WhatsApp
-            </a>
+      <section 
+        className="relative bg-cover bg-center text-white pt-24 pb-28 px-4 overflow-hidden border-b-8 border-festival-gold flex items-center min-h-[520px]"
+        style={{ backgroundImage: `linear-gradient(to right, rgba(28, 6, 9, 0.95) 30%, rgba(28, 6, 9, 0.4) 75%, rgba(28, 6, 9, 0.1) 100%), url('/divine_ganesha_hero.jpg')` }}
+      >
+        <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+          <div className="lg:col-span-8 space-y-6">
+            <span className="inline-block bg-festival-saffron/20 border border-festival-saffron/30 text-festival-saffron text-sm font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
+              Eco-Friendly Clay Idols (Shadu Mati)
+            </span>
+            <h1 className="text-4xl md:text-6xl font-serif font-medium tracking-wide leading-tight text-festival-cream">
+              Divine Handcrafted Ganesh Idols for Your Home
+            </h1>
+            <p className="text-base md:text-lg text-festival-cream/80 max-w-xl font-light leading-relaxed">
+              Bring home blessings this festival with our 100% biodegradable, beautifully painted clay Ganesha idols. Handcrafted with devotion by local artisans.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Link
+                to="/idols"
+                className="px-8 py-4 bg-festival-saffron hover:bg-amber-600 text-festival-dark font-extrabold rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 text-center text-sm md:text-base border-2 border-festival-gold"
+              >
+                Explore Ganesh Idols
+              </Link>
+              <a
+                href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=Hello,%20I%20am%20interested%20in%20booking%20a%20Ganesh%20idol.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-transparent hover:bg-white/10 text-white font-bold rounded-2xl border-2 border-white/40 transition-all duration-300 active:scale-95 text-center text-sm md:text-base flex items-center justify-center gap-2"
+              >
+                <MessageSquare className="w-5 h-5 text-emerald-400" /> Book via WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </section>

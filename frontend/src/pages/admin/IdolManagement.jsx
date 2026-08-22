@@ -30,14 +30,14 @@ const IdolManagement = () => {
   const fetchIdols = async () => {
     try {
       setLoading(true);
-      let queryParams = [];
+      let queryParams = ['limit=100'];
 
       if (debouncedSearch) queryParams.push(`search=${encodeURIComponent(debouncedSearch)}`);
       if (availability !== 'all') queryParams.push(`availability=${availability}`);
       if (sort !== 'displayOrder') queryParams.push(`sort=${sort}`);
 
       const queryString = queryParams.length > 0 ? `?${queryParams.join('&')}` : '';
-      const response = await axios.get(`/api/idols${queryString}&limit=100`);
+      const response = await axios.get(`/api/idols${queryString}`);
 
       if (response.data && response.data.success) {
         setIdols(response.data.data);
