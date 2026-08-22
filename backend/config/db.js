@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-// Disable query buffering globally so queries fail fast if the connection is down
-mongoose.set('bufferCommands', false);
-
 const connectDB = async () => {
   if (!process.env.MONGODB_URI) {
     console.error('MongoDB Connection Error: MONGODB_URI environment variable is not defined!');
