@@ -81,9 +81,15 @@ if (process.env.NODE_ENV === 'production') {
 // Start Server
 const PORT = process.env.PORT || 5000;
 
-// Connect DB first then start listening
-connectDB().then(() => {
+// Connect DB
+connectDB();
+
+// Export app for serverless deployments (e.g. Vercel)
+module.exports = app;
+
+// Only start the listener if run directly
+if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
   });
-});
+}

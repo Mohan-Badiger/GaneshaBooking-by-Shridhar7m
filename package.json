@@ -1,0 +1,10 @@
+{
+  "name": "ganesha-booking-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run install-backend && npm run build-frontend",
+    "install-backend": "cd backend && npm install",
+    "build-frontend": "cd frontend && npm install && npm run build"
+  }
+}

@@ -160,3 +160,18 @@ To build a single bundled package where the Express server serves both the APIs 
    npm start
    ```
    *Express will now serve the complete system on `http://localhost:5000`.*
+
+---
+
+## ☁️ Vercel Deployment (One-Click Serverless)
+
+The project is pre-configured with `vercel.json` and a root `package.json` to deploy seamlessly to Vercel as a single serverless monorepo application:
+
+1. Import your project repository into your **Vercel Dashboard**.
+2. **Environment Variables**: In your Vercel project settings, configure:
+   - `NODE_ENV`: `production`
+   - `MONGODB_URI`: `mongodb+srv://...` (your MongoDB Atlas connection string)
+   - `JWT_SECRET`: `your_jwt_secret_phrase`
+   - `WHATSAPP_NUMBER`: `91XXXXXXXXXX` (with country code)
+   - *(Optional)* Cloudinary keys: `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`
+3. Click **Deploy**. Vercel will automatically run the build orchestration, compile the frontend assets, set up the serverless Node.js backend handlers, and serve the application under a public domain.
