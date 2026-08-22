@@ -63,7 +63,7 @@ const IdolCard = ({ idol }) => {
         </div>
 
         {/* Idol Name */}
-        <h3 className="text-lg font-serif font-black text-festival-maroon mb-2 line-clamp-1 group-hover:text-festival-maroonDark transition-colors">
+        <h3 className="text-lg font-serif font-medium text-festival-maroon mb-2 line-clamp-1 group-hover:text-festival-maroonDark transition-colors">
           {name}
         </h3>
 

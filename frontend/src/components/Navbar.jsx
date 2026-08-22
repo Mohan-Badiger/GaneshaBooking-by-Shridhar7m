@@ -33,8 +33,7 @@ const Navbar = () => {
           {/* Logo / Brand */}
           <div className="shrink-0 flex items-center">
             <Link to="/" className="flex items-center space-x-2" onClick={closeMenu}>
-              <span className="text-2xl font-serif font-black tracking-wide text-festival-maroon flex items-center">
-                <span className="mr-1 text-festival-saffron">🕉️</span>
+              <span className="text-2xl font-serif font-medium tracking-wide text-festival-maroon flex items-center">
                 {settings.businessName.split(' ')[0]} <span className="text-festival-saffron ml-1.5 font-sans font-normal text-lg hidden sm:inline">Idols</span>
               </span>
             </Link>

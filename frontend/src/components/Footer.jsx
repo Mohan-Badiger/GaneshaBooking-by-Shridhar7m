@@ -12,8 +12,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           {/* Column 1: Business Branding & Hours */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-serif font-black tracking-wide text-festival-gold flex items-center">
-              <span className="mr-2">🕉️</span>
+            <h3 className="text-2xl font-serif font-medium tracking-wide text-festival-gold flex items-center">
               {settings.businessName}
             </h3>
             <p className="text-sm leading-relaxed text-[#B8AFAB]">
@@ -91,7 +90,7 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-[#8E837D] space-y-4 sm:space-y-0">
           <p>© {new Date().getFullYear()} {settings.businessName}. All Rights Reserved.</p>
           <p className="flex items-center space-x-1">
-            <span>Handcrafted with devotion in India 🇮🇳</span>
+            <span>Handcrafted with devotion in India</span>
           </p>
         </div>
       </div>
