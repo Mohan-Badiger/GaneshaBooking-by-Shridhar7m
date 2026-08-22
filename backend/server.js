@@ -21,6 +21,9 @@ const apiRoutes = require('./routes/api');
 
 const app = express();
 
+// Trust first proxy (Vercel) for express-rate-limit to identify client IPs
+app.set('trust proxy', 1);
+
 // Security Headers
 app.use(
   helmet({
