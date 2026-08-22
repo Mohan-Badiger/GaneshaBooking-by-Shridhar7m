@@ -50,72 +50,70 @@ GaneshaBooking-by-Shridhar7m/
     └── tailwind.config.js    # Festival color palettes & font families
 ```
 
----
-
-## 🛠️ Step-by-Step Installation
+## 🚀 Quick Setup & Installation
 
 ### Prerequisites
-- Node.js installed (v18+)
-- Local MongoDB running at `mongodb://127.0.0.1:27017/` (or a MongoDB Atlas link)
+- **Node.js** installed (v18+)
+- **MongoDB** running locally (`mongodb://127.0.0.1:27017/`) or a **MongoDB Atlas** connection string.
 
-### Step 1: Configure & Seed the Backend
+---
+
+### Step 1: Backend Setup & Run
 
 1. Navigate to the `backend/` directory:
    ```bash
    cd backend
    ```
-
 2. Install dependencies:
    ```bash
    npm install
    ```
-
-3. Create your `.env` configuration file (already initialized for development, but customizable):
+3. Create your `.env` configuration file from the template:
    ```bash
-   cp .env.example .env
+   copy .env.example .env
    ```
-
-4. Seed the database with the administrator account and 8 sample Ganesha models:
-   ```bash
-   npm run seed
-   ```
-   *Note: This generates default credentials:*
-   - **Admin Username**: `admin@ganeshabooking.com`
-   - **Admin Password**: `admin123`
-
-5. Start the backend developer server:
+   *Note: Open `.env` and set your `MONGODB_URI` connection string.*
+4. Start the backend developer server:
    ```bash
    npm run dev
    ```
-   *The API will boot on `http://localhost:5000`.*
+   *The server will boot on `http://localhost:5000`.*
 
 ---
 
-### Step 2: Set Up and Run the Frontend
+### Step 2: Frontend Setup & Run
 
-1. Open a new terminal and navigate to the `frontend/` directory:
+1. Navigate to the `frontend/` directory:
    ```bash
    cd frontend
    ```
-
-2. Install client dependencies:
+2. Install dependencies:
    ```bash
    npm install
    ```
-
-3. Start the Vite React development server:
+3. Start the Vite development server:
    ```bash
    npm run dev
    ```
-   *The client will open on `http://localhost:5173`. You can visit `/admin` to log in using the credentials above.*
+   *The client application will run at `http://localhost:5173`.*
 
 ---
 
-## 🛡️ Admin Login Credentials
-- **Email**: `admin@ganeshabooking.com`
-- **Password**: `admin123`
+## 🛡️ Admin Portal Access
+To manage settings, upload images, and add/edit Ganesha idols:
+- **URL**: `http://localhost:5173/admin` (or `/admin` in production)
+- **Default Email**: `admin@ganeshabooking.com`
+- **Default Password**: `admin123`
 
 ---
+
+## ✨ Features Highlight
+
+- **Eco-Friendly Theme**: Vibrant champagne (`#FAF7F2`), royal burgundy (`#5C0612`), and warm gold (`#C5A028`) design system using Adobe **IvyOra Display** serif fonts for traditional typography.
+- **WhatsApp Checkout**: Customers configure booking dates, quantities, and instructions in a responsive form which automatically compiles a URL-encoded template to open WhatsApp with the business.
+- **Auto-Generated Model Codes**: Ganesha idols are assigned unique sequential codes automatically on creation (starting from `0001`, e.g. `0001`, `0002`, `0003`...). The customer and admin search bars support instant filtering by these codes.
+- **High-Performance WebP Compression**: Images uploaded by the admin are automatically resized and converted to optimized `.webp` format on the server side, saving 80%+ bandwidth and disk storage.
+- **Strong Browser Caching**: Static uploads are configured with a 30-day cache control header to guarantee instant return visits.
 
 ## 🔌 API Endpoints Documentation
 
