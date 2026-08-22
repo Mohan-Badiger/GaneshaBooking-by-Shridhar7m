@@ -13,8 +13,14 @@ const IdolCard = ({ idol }) => {
   }).format(price);
 
   // Fallback image if empty
+  const getImageUrl = (url) => {
+    if (!url) return 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800';
+    if (url.startsWith('http')) return url;
+    return `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${url}`;
+  };
+
   const primaryImage = images && images.length > 0
-    ? (images[0].startsWith('http') || images[0].startsWith('/uploads/') ? images[0] : `http://localhost:5000${images[0]}`)
+    ? getImageUrl(images[0])
     : 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800';
 
   return (
