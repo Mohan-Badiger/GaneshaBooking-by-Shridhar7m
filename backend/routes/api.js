@@ -8,6 +8,7 @@ const {
   updateIdol,
   deleteIdol,
   updateIdolStatus,
+  getNextIdolCode,
 } = require('../controllers/idolController');
 
 const {
@@ -41,6 +42,7 @@ router.put('/admin/idols/:id', protect, updateIdol);
 router.delete('/api/admin/idols/:id', protect, deleteIdol); // Make sure this matches backend spec or can use router.delete('/admin/idols/:id')
 router.delete('/admin/idols/:id', protect, deleteIdol); // Supporting both path conventions
 router.patch('/admin/idols/:id/status', protect, updateIdolStatus);
+router.get('/admin/idols/next-code', protect, getNextIdolCode);
 
 // IMAGE UPLOAD ROUTE
 router.post('/admin/upload', protect, upload.array('images', 5), async (req, res) => {

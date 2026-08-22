@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Ruler, ShoppingBag, Eye, Award } from 'lucide-react';
 
 const IdolCard = ({ idol }) => {
-  const { _id, name, height, price, images, availability, material, featured } = idol;
+  const { _id, name, code, height, price, images, availability, material, featured } = idol;
 
   // Format price to Indian currency style
   const formattedPrice = new Intl.NumberFormat('en-IN', {
@@ -69,9 +69,16 @@ const IdolCard = ({ idol }) => {
 
         {/* Height and Pricing */}
         <div className="flex justify-between items-center pt-2.5 pb-3.5 mt-auto border-t border-festival-creamDark/60">
-          <div className="flex items-center text-festival-darkLight/70 text-xs">
-            <Ruler className="w-3.5 h-3.5 text-festival-gold mr-1.5 shrink-0" />
-            <span>Height: {height} Ft</span>
+          <div className="flex flex-col text-left space-y-0.5 text-festival-darkLight/70 text-[11px]">
+            <div className="flex items-center">
+              <Ruler className="w-3.5 h-3.5 text-festival-gold mr-1 shrink-0" />
+              <span>Height: {height} Ft</span>
+            </div>
+            {code && (
+              <span className="text-[10px] font-bold text-festival-gold/90 font-sans">
+                Code: #{code}
+              </span>
+            )}
           </div>
           <div className="text-lg font-serif font-bold text-festival-maroon">
             {formattedPrice}

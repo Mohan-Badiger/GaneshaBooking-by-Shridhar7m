@@ -212,7 +212,14 @@ const IdolManagement = () => {
                         />
                       </div>
                       <div>
-                        <div className="font-bold text-festival-maroon">{idol.name}</div>
+                        <div className="font-bold text-festival-maroon flex items-center gap-1.5">
+                          {idol.name}
+                          {idol.code && (
+                            <span className="text-[10px] font-sans font-bold bg-festival-gold/15 text-festival-gold px-1.5 py-0.5 rounded">
+                              #{idol.code}
+                            </span>
+                          )}
+                        </div>
                         <div className="text-xs text-festival-darkLight/50">{idol.material}</div>
                       </div>
                     </div>
@@ -312,7 +319,14 @@ const IdolManagement = () => {
                   />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-bold text-festival-maroon text-sm leading-tight">{idol.name}</h3>
+                  <h3 className="font-bold text-festival-maroon text-sm leading-tight flex items-center gap-1.5 flex-wrap">
+                    {idol.name}
+                    {idol.code && (
+                      <span className="text-[9px] font-sans font-bold bg-festival-gold/15 text-festival-gold px-1.5 py-0.5 rounded">
+                        #{idol.code}
+                      </span>
+                    )}
+                  </h3>
                   <p className="text-[10px] text-festival-darkLight/60">{idol.material}</p>
                   <p className="text-sm font-black text-festival-maroon">₹{idol.price.toLocaleString('en-IN')}</p>
                   <div className="text-[10px] text-festival-darkLight/60 flex items-center pt-0.5">

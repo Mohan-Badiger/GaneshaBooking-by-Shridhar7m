@@ -115,7 +115,7 @@ const IdolDetails = () => {
           </div>
 
           {/* Specifications Grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <div className="p-4 border border-festival-creamDark rounded-2xl bg-white space-y-1">
               <span className="text-xs text-festival-darkLight/50 font-medium">Height</span>
               <p className="text-lg font-serif font-bold text-festival-maroon flex items-center">
@@ -123,12 +123,20 @@ const IdolDetails = () => {
                 {idol.height} Feet
               </p>
             </div>
-            {idol.width && (
+            {idol.width ? (
               <div className="p-4 border border-festival-creamDark rounded-2xl bg-white space-y-1">
                 <span className="text-xs text-festival-darkLight/50 font-medium">Width</span>
                 <p className="text-lg font-serif font-bold text-festival-maroon flex items-center">
                   <Ruler className="w-4 h-4 text-festival-saffron mr-1.5 shrink-0" />
                   {idol.width} Feet
+                </p>
+              </div>
+            ) : null}
+            {idol.code && (
+              <div className={`p-4 border border-festival-creamDark rounded-2xl bg-white space-y-1 ${idol.width ? 'col-span-2 sm:col-span-1' : ''}`}>
+                <span className="text-xs text-festival-darkLight/50 font-medium">Model Code</span>
+                <p className="text-lg font-sans font-extrabold text-festival-maroon flex items-center">
+                  #{idol.code}
                 </p>
               </div>
             )}

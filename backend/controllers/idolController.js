@@ -12,7 +12,11 @@ const getIdols = async (req, res) => {
 
     // Search filter
     if (search) {
-      query.name = { $regex: search, $options: 'i' };
+      query.$or = [
+        { name: { $regex: search, $options: 'i' } },
+        { code: { $regex: search, $options: 'i' } },
+        { material: { $regex: search, $options: 'i' } }
+      ];
     }
 
     // Availability filter
@@ -96,6 +100,17 @@ const createIdol = async (req, res) => {
       return res.status(400).json({ success: false, message: 'Please provide all required fields' });
     }
 
+    // Auto-generate unique 4-digit code starting from 0001
+    const idols = await Idol.find({}, 'code');
+    let maxVal = 0;
+    idols.forEach((idol) => {
+      const codeNum = parseInt(idol.code, 10);
+      if (!isNaN(codeNum) && codeNum > maxVal) {
+        maxVal = codeNum;
+      }
+    });
+    const generatedCode = String(maxVal + 1).padStart(4, '0');
+
     const slug = name
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
@@ -110,6 +125,7 @@ const createIdol = async (req, res) => {
 
     const newIdol = await Idol.create({
       name,
+      code: generatedCode,
       slug: finalSlug,
       description,
       height,
@@ -244,6 +260,27 @@ const updateIdolStatus = async (req, res) => {
   }
 };
 
+// @desc    Get next available unique 4-digit code (admin)
+// @route   GET /api/admin/idols/next-code
+const getNextIdolCode = async (req, res) => {
+  try {
+    const idols = await Idol.find({}, 'code');
+    let maxVal = 0;
+
+    idols.forEach((idol) => {
+      const codeNum = parseInt(idol.code, 10);
+      if (!isNaN(codeNum) && codeNum > maxVal) {
+        maxVal = codeNum;
+      }
+    });
+
+    res.status(200).json({ success: true, nextCode: String(maxVal + 1).padStart(4, '0') });
+  } catch (error) {
+    console.error('Error fetching next code:', error);
+    res.status(500).json({ success: false, message: 'Server Error calculating next code' });
+  }
+};
+
 module.exports = {
   getIdols,
   getIdolById,
@@ -251,4 +288,5 @@ module.exports = {
   updateIdol,
   deleteIdol,
   updateIdolStatus,
+  getNextIdolCode,
 };

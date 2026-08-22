@@ -114,6 +114,7 @@ const Booking = () => {
     const messageTemplate = `Hello, I would like to book a Ganesh idol.
 
 *Idol Details*
+Model Code: #${idol.code}
 Name: ${idol.name}
 Height: ${idol.height} Feet
 Price: ${formattedPrice}

@@ -48,14 +48,14 @@ const Home = () => {
   return (
     <div className="space-y-20 pb-16 font-sans">
       {/* 1. Hero Section */}
-      <section 
-        className="relative bg-cover bg-center text-white pt-24 pb-28 px-4 overflow-hidden border-b-8 border-festival-gold flex items-center min-h-[520px]"
+      <section
+        className="relative bg-cover bg-center text-white pt-24 pb-28 px-4 overflow-hidden border-b-8 border-festival-gold flex items-center min-h-130"
         style={{ backgroundImage: `linear-gradient(to right, rgba(28, 6, 9, 0.95) 30%, rgba(28, 6, 9, 0.4) 75%, rgba(28, 6, 9, 0.1) 100%), url('/divine_ganesha_hero.jpg')` }}
       >
         <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
           <div className="lg:col-span-8 space-y-6">
             <span className="inline-block bg-festival-saffron/20 border border-festival-saffron/30 text-festival-saffron text-sm font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
-              Eco-Friendly Clay Idols (Shadu Mati)
+              Eco-Friendly Clay Idols
             </span>
             <h1 className="text-4xl md:text-6xl font-serif font-medium tracking-wide leading-tight text-festival-cream">
               Divine Handcrafted Ganesh Idols for Your Home
@@ -223,7 +223,7 @@ const Home = () => {
           </div>
           <div className="w-full md:w-80 aspect-4/3 rounded-2xl overflow-hidden border border-festival-creamDark shadow-md">
             <img
-              src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&q=80&w=600"
+              src="/artisan_clay_ganesha.jpg"
               alt="Artisan sculpting Ganesha"
               className="w-full h-full object-cover"
             />

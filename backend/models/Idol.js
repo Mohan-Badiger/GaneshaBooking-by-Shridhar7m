@@ -7,6 +7,13 @@ const idolSchema = new mongoose.Schema(
       required: [true, 'Please add a name'],
       trim: true,
     },
+    code: {
+      type: String,
+      unique: true,
+      required: [true, 'Please add a model code'],
+      trim: true,
+      index: true,
+    },
     slug: {
       type: String,
       unique: true,
@@ -14,7 +21,7 @@ const idolSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: [true, 'Please add a description'],
+      default: 'This beautiful Ganesha idol is handcrafted from pure, eco-friendly clay (Shadu Mati). Hand-painted with devotion by local traditional artisans using non-toxic organic colors, it features intricate details. It is completely biodegradable and designed to dissolve easily in a bucket of water at home, leaving zero environmental footprint.',
     },
     height: {
       type: Number, // In feet, e.g. 3.5

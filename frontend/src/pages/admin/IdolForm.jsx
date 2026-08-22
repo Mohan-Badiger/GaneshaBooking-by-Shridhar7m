@@ -11,7 +11,8 @@ const IdolForm = () => {
 
   const [formData, setFormData] = useState({
     name: '',
-    description: '',
+    code: '',
+    description: 'This beautiful Ganesha idol is handcrafted from pure, eco-friendly clay (Shadu Mati). Hand-painted with devotion by local traditional artisans using non-toxic organic colors, it features intricate details. It is completely biodegradable and designed to dissolve easily in a bucket of water at home, leaving zero environmental footprint.',
     height: '',
     width: '',
     material: 'Eco-friendly Clay (Shadu Mati)',
@@ -40,6 +41,7 @@ const IdolForm = () => {
             const data = response.data.data;
             setFormData({
               name: data.name || '',
+              code: data.code || '',
               description: data.description || '',
               height: data.height || '',
               width: data.width || '',
@@ -63,6 +65,8 @@ const IdolForm = () => {
       fetchIdolDetails();
     }
   }, [id, isEditMode]);
+
+
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -145,7 +149,7 @@ const IdolForm = () => {
 
     if (!formData.name || !formData.description || !formData.height || !formData.price) {
       setToastType('warning');
-      setToastMessage('Please complete all required fields');
+      setToastMessage('Please complete all required fields (Name, Description, Height, Price)');
       return;
     }
 
@@ -231,6 +235,8 @@ const IdolForm = () => {
                 className="form-input"
               />
             </div>
+
+
 
             <div className="space-y-1">
               <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider">
