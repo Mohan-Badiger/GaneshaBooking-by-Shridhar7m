@@ -228,7 +228,7 @@ const IdolForm = () => {
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder="e.g. Royal Shrimant Ganesha"
-                className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                className="form-input"
               />
             </div>
 
@@ -243,7 +243,7 @@ const IdolForm = () => {
                 value={formData.material}
                 onChange={handleInputChange}
                 placeholder="e.g. Eco Clay (Shadu Mati)"
-                className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                className="form-input"
               />
             </div>
 
@@ -259,7 +259,7 @@ const IdolForm = () => {
                 value={formData.price}
                 onChange={handleInputChange}
                 placeholder="e.g. 8500"
-                className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                className="form-input"
               />
             </div>
 
@@ -277,7 +277,7 @@ const IdolForm = () => {
                   value={formData.height}
                   onChange={handleInputChange}
                   placeholder="e.g. 3.5"
-                  className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                  className="form-input"
                 />
               </div>
               <div className="space-y-1">
@@ -292,7 +292,7 @@ const IdolForm = () => {
                   value={formData.width}
                   onChange={handleInputChange}
                   placeholder="e.g. 2.2"
-                  className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                  className="form-input"
                 />
               </div>
             </div>
@@ -310,7 +310,7 @@ const IdolForm = () => {
               value={formData.description}
               onChange={handleInputChange}
               placeholder="Provide historical style details, color highlights, packaging details..."
-              className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+              className="form-input"
             ></textarea>
           </div>
 
@@ -355,7 +355,7 @@ const IdolForm = () => {
                 {formData.images.map((imgUrl, idx) => (
                   <div
                     key={idx}
-                    className={`relative rounded-xl overflow-hidden border aspect-[4/5] group bg-white shadow-sm transition-all ${
+                    className={`relative rounded-xl overflow-hidden border aspect-4/5 group bg-white shadow-sm transition-all ${
                       idx === 0 ? 'border-2 border-festival-maroon ring-2 ring-festival-maroon/10 scale-95' : 'border-festival-creamDark'
                     }`}
                   >
@@ -414,7 +414,7 @@ const IdolForm = () => {
                 placeholder="e.g. Free dynamic wooden base"
                 value={newFeature}
                 onChange={(e) => setNewFeature(e.target.value)}
-                className="flex-grow px-3 py-2 bg-white border border-festival-creamDark rounded-xl text-xs focus:outline-none"
+                className="grow px-3 py-2 bg-white border border-festival-creamDark rounded-xl text-xs focus:outline-none"
               />
               <button
                 type="button"

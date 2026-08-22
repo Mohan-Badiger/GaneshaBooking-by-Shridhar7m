@@ -85,13 +85,13 @@ const Idols = () => {
               placeholder="Search by Ganesha name..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-11 pr-4 py-3 bg-festival-cream/50 border border-festival-creamDark rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-festival-maroon/20 focus:border-festival-maroon transition-all"
+              className="form-input pl-11"
             />
           </div>
 
           {/* Availability Select */}
           <div className="relative md:col-span-3 flex items-center bg-festival-cream/50 border border-festival-creamDark rounded-2xl px-3 py-3">
-            <SlidersHorizontal className="w-4 h-4 text-festival-maroon/70 mr-2 flex-shrink-0" />
+            <SlidersHorizontal className="w-4 h-4 text-festival-maroon/70 mr-2 shrink-0" />
             <select
               value={availability}
               onChange={(e) => setAvailability(e.target.value)}
@@ -105,7 +105,7 @@ const Idols = () => {
 
           {/* Sort Select */}
           <div className="relative md:col-span-4 flex items-center bg-festival-cream/50 border border-festival-creamDark rounded-2xl px-3 py-3">
-            <ArrowUpDown className="w-4 h-4 text-festival-maroon/70 mr-2 flex-shrink-0" />
+            <ArrowUpDown className="w-4 h-4 text-festival-maroon/70 mr-2 shrink-0" />
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}

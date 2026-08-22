@@ -105,7 +105,7 @@ const IdolDetails = () => {
           </div>
 
           {/* Price Tag */}
-          <div className="bg-gradient-to-r from-festival-cream to-festival-creamDark border-l-4 border-festival-gold p-4 rounded-xl flex items-baseline justify-between shadow-sm">
+          <div className="bg-linear-to-r from-festival-cream to-festival-creamDark border-l-4 border-festival-gold p-4 rounded-xl flex items-baseline justify-between shadow-sm">
             <span className="text-xs font-bold text-festival-darkLight/60 uppercase tracking-wider">
               Booking Price
             </span>
@@ -119,7 +119,7 @@ const IdolDetails = () => {
             <div className="p-4 border border-festival-creamDark rounded-2xl bg-white space-y-1">
               <span className="text-xs text-festival-darkLight/50 font-medium">Height</span>
               <p className="text-lg font-serif font-bold text-festival-maroon flex items-center">
-                <Ruler className="w-4 h-4 text-festival-saffron mr-1.5 flex-shrink-0" />
+                <Ruler className="w-4 h-4 text-festival-saffron mr-1.5 shrink-0" />
                 {idol.height} Feet
               </p>
             </div>
@@ -127,7 +127,7 @@ const IdolDetails = () => {
               <div className="p-4 border border-festival-creamDark rounded-2xl bg-white space-y-1">
                 <span className="text-xs text-festival-darkLight/50 font-medium">Width</span>
                 <p className="text-lg font-serif font-bold text-festival-maroon flex items-center">
-                  <Ruler className="w-4 h-4 text-festival-saffron mr-1.5 flex-shrink-0" />
+                  <Ruler className="w-4 h-4 text-festival-saffron mr-1.5 shrink-0" />
                   {idol.width} Feet
                 </p>
               </div>
@@ -153,7 +153,7 @@ const IdolDetails = () => {
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-festival-darkLight/85">
                 {idol.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center space-x-2">
-                    <ShieldCheck className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0" />
+                    <ShieldCheck className="w-4.5 h-4.5 text-emerald-500 shrink-0" />
                     <span className="truncate">{feature}</span>
                   </li>
                 ))}

@@ -79,7 +79,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="admin@ganeshabooking.com"
-                className="w-full pl-11 pr-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                className="form-input pl-11"
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-11 pr-12 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                className="form-input pl-11 pr-12"
               />
               <button
                 type="button"

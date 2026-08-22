@@ -48,7 +48,7 @@ const Home = () => {
   return (
     <div className="space-y-20 pb-16 font-sans">
       {/* 1. Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#7A1C1C] to-[#400E0E] text-white pt-20 pb-24 px-4 overflow-hidden border-b-8 border-festival-gold">
+      <section className="relative bg-linear-to-br from-festival-maroon to-[#400E0E] text-white pt-20 pb-24 px-4 overflow-hidden border-b-8 border-festival-gold">
         {/* Background decorative mandalas */}
         <div className="absolute inset-0 opacity-10 flex items-center justify-center select-none pointer-events-none">
           <span className="text-[25rem] font-serif">🕉️</span>
@@ -199,7 +199,7 @@ const Home = () => {
 
       {/* 5. Trust / Local Business Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-festival-cream to-festival-creamDark border border-festival-gold/30 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 shadow-sm">
+        <div className="bg-linear-to-br from-festival-cream to-festival-creamDark border border-festival-gold/30 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 shadow-sm">
           <div className="flex-1 space-y-4 text-center md:text-left">
             <span className="text-xs font-extrabold text-festival-maroon uppercase tracking-wider bg-festival-gold/20 px-3 py-1 rounded">
               Support Local Artisans
@@ -221,7 +221,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-80 aspect-[4/3] rounded-2xl overflow-hidden border border-festival-creamDark shadow-md">
+          <div className="w-full md:w-80 aspect-4/3 rounded-2xl overflow-hidden border border-festival-creamDark shadow-md">
             <img
               src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&q=80&w=600"
               alt="Artisan sculpting Ganesha"
@@ -271,7 +271,7 @@ const Home = () => {
 
             <div className="space-y-5">
               <div className="flex items-start space-x-4">
-                <MapPin className="w-6 h-6 text-festival-saffron mt-1 flex-shrink-0" />
+                <MapPin className="w-6 h-6 text-festival-saffron mt-1 shrink-0" />
                 <div>
                   <h4 className="font-bold text-sm text-festival-maroon">Workshop Location</h4>
                   <p className="text-sm text-festival-darkLight/80 leading-relaxed mt-1">
@@ -281,7 +281,7 @@ const Home = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <Phone className="w-6 h-6 text-festival-saffron mt-1 flex-shrink-0" />
+                <Phone className="w-6 h-6 text-festival-saffron mt-1 shrink-0" />
                 <div>
                   <h4 className="font-bold text-sm text-festival-maroon">Call/Phone</h4>
                   <p className="text-sm text-festival-darkLight/80 mt-1">
@@ -291,7 +291,7 @@ const Home = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <Clock className="w-6 h-6 text-festival-saffron mt-1 flex-shrink-0" />
+                <Clock className="w-6 h-6 text-festival-saffron mt-1 shrink-0" />
                 <div>
                   <h4 className="font-bold text-sm text-festival-maroon">Business Timings</h4>
                   <p className="text-sm text-festival-darkLight/80 mt-1">

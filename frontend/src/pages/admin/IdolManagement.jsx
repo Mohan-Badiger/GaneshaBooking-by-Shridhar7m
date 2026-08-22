@@ -134,13 +134,13 @@ const IdolManagement = () => {
             placeholder="Search by Ganesha name..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-xs focus:outline-none focus:ring-4 transition-all"
+            className="search-input"
           />
         </div>
 
         {/* Availability */}
         <div className="relative sm:col-span-3 flex items-center bg-festival-cream/30 border border-festival-creamDark rounded-2xl px-3 py-2.5">
-          <SlidersHorizontal className="w-4 h-4 text-festival-maroon/70 mr-2 flex-shrink-0" />
+          <SlidersHorizontal className="w-4 h-4 text-festival-maroon/70 mr-2 shrink-0" />
           <select
             value={availability}
             onChange={(e) => setAvailability(e.target.value)}
@@ -154,7 +154,7 @@ const IdolManagement = () => {
 
         {/* Sort */}
         <div className="relative sm:col-span-3 flex items-center bg-festival-cream/30 border border-festival-creamDark rounded-2xl px-3 py-2.5">
-          <ArrowUpDown className="w-4 h-4 text-festival-maroon/70 mr-2 flex-shrink-0" />
+          <ArrowUpDown className="w-4 h-4 text-festival-maroon/70 mr-2 shrink-0" />
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value)}
@@ -204,7 +204,7 @@ const IdolManagement = () => {
                 <tr key={idol._id} className="hover:bg-festival-cream/10">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 rounded-lg overflow-hidden bg-festival-cream border border-festival-creamDark flex-shrink-0">
+                      <div className="w-12 h-12 rounded-lg overflow-hidden bg-festival-cream border border-festival-creamDark shrink-0">
                         <img
                           src={getPrimaryImage(idol.images)}
                           alt={idol.name}
@@ -219,7 +219,7 @@ const IdolManagement = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-xs text-festival-darkLight/75">
                     <div className="flex items-center font-medium">
-                      <Ruler className="w-3.5 h-3.5 text-festival-saffron mr-1 flex-shrink-0" />
+                      <Ruler className="w-3.5 h-3.5 text-festival-saffron mr-1 shrink-0" />
                       <span>{idol.height} ft {idol.width ? `x ${idol.width} ft` : ''}</span>
                     </div>
                   </td>
@@ -304,7 +304,7 @@ const IdolManagement = () => {
           idols.map((idol) => (
             <div key={idol._id} className="bg-white border border-festival-creamDark rounded-3xl p-5 shadow-sm space-y-4">
               <div className="flex gap-4">
-                <div className="w-16 h-16 rounded-xl overflow-hidden bg-festival-cream border border-festival-creamDark flex-shrink-0">
+                <div className="w-16 h-16 rounded-xl overflow-hidden bg-festival-cream border border-festival-creamDark shrink-0">
                   <img
                     src={getPrimaryImage(idol.images)}
                     alt={idol.name}
@@ -316,7 +316,7 @@ const IdolManagement = () => {
                   <p className="text-[10px] text-festival-darkLight/60">{idol.material}</p>
                   <p className="text-sm font-black text-festival-maroon">₹{idol.price.toLocaleString('en-IN')}</p>
                   <div className="text-[10px] text-festival-darkLight/60 flex items-center pt-0.5">
-                    <Ruler className="w-3.5 h-3.5 text-festival-saffron mr-1 flex-shrink-0" />
+                    <Ruler className="w-3.5 h-3.5 text-festival-saffron mr-1 shrink-0" />
                     <span>Height: {idol.height} ft {idol.width ? `x ${idol.width} ft` : ''}</span>
                   </div>
                 </div>

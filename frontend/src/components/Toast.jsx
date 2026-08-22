@@ -28,11 +28,11 @@ const Toast = ({ message, type = 'info', onClose, duration = 4000 }) => {
       className={`fixed bottom-4 right-4 z-50 flex items-center p-4 rounded-xl border shadow-lg max-w-md w-[calc(100vw-2rem)] md:w-96 transition-all duration-300 transform scale-100 ${typeStyles[type]}`}
       role="alert"
     >
-      <div className="flex-shrink-0 mr-3">{icons[type]}</div>
-      <div className="flex-grow font-sans text-sm font-medium mr-2">{message}</div>
+      <div className="shrink-0 mr-3">{icons[type]}</div>
+      <div className="grow font-sans text-sm font-medium mr-2">{message}</div>
       <button
         onClick={onClose}
-        className="flex-shrink-0 hover:opacity-75 transition-opacity focus:outline-none"
+        className="shrink-0 hover:opacity-75 transition-opacity focus:outline-none"
         aria-label="Close message"
       >
         <X className="w-4 h-4" />

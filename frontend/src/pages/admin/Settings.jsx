@@ -114,13 +114,13 @@ const Settings = () => {
                   value={formData.businessName}
                   onChange={handleInputChange}
                   placeholder="e.g. Sri Vinayaka Murti Kendra"
-                  className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                  className="form-input"
                 />
               </div>
 
               {/* WhatsApp booking Number */}
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider flex items-center gap-1.5">
+                <label className="flex items-center gap-1.5 text-xs font-bold text-festival-maroon uppercase tracking-wider">
                   WhatsApp Booking Number *
                   <span className="text-[10px] text-festival-darkLight/40 hover:text-festival-maroon transition-colors cursor-help" title="Include country code without + or spaces, e.g., 919876543210 for India.">
                     <HelpCircle className="w-3.5 h-3.5" />
@@ -133,7 +133,7 @@ const Settings = () => {
                   value={formData.whatsappNumber}
                   onChange={handleInputChange}
                   placeholder="e.g. 919876543210"
-                  className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                  className="form-input"
                 />
               </div>
 
@@ -149,7 +149,7 @@ const Settings = () => {
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
                   placeholder="e.g. 9876543210"
-                  className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                  className="form-input"
                 />
               </div>
 
@@ -165,7 +165,7 @@ const Settings = () => {
                   value={formData.businessHours}
                   onChange={handleInputChange}
                   placeholder="e.g. 8:00 AM - 10:00 PM"
-                  className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                  className="form-input"
                 />
               </div>
             </div>
@@ -189,13 +189,13 @@ const Settings = () => {
                   value={formData.address}
                   onChange={handleInputChange}
                   placeholder="Full street name, landmark, zip code, city..."
-                  className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                  className="form-input"
                 ></textarea>
               </div>
 
               {/* Google Maps Link */}
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider flex items-center gap-1.5">
+                <label className="flex items-center gap-1.5 text-xs font-bold text-festival-maroon uppercase tracking-wider">
                   Google Maps Embed Iframe URL
                   <span className="text-[10px] text-festival-darkLight/40 hover:text-festival-maroon transition-colors cursor-help" title="Go to Google Maps -> Share -> Embed Map -> Copy URL from inside the src attribute of the iframe tag.">
                     <HelpCircle className="w-3.5 h-3.5" />
@@ -207,7 +207,7 @@ const Settings = () => {
                   value={formData.mapsEmbedLink}
                   onChange={handleInputChange}
                   placeholder="https://www.google.com/maps/embed?pb=..."
-                  className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                  className="form-input"
                 />
               </div>
             </div>
@@ -230,7 +230,7 @@ const Settings = () => {
                   value={formData.pickupInfo}
                   onChange={handleInputChange}
                   placeholder="e.g. Please bring a soft blanket or sheet to collect..."
-                  className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                  className="form-input"
                 ></textarea>
               </div>
 
@@ -245,7 +245,7 @@ const Settings = () => {
                   value={formData.deliveryInfo}
                   onChange={handleInputChange}
                   placeholder="e.g. Transport charges calculated based on distance..."
-                  className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark focus:ring-festival-maroon/20 focus:border-festival-maroon rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all"
+                  className="form-input"
                 ></textarea>
               </div>
             </div>
