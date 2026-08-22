@@ -86,7 +86,7 @@ const AdminLayout = () => {
         >
           {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
-        <span className="font-serif font-black text-festival-maroon text-lg">🕉️ Catalog Control</span>
+        <span className="font-serif font-black text-festival-maroon text-lg">Catalog Control</span>
         <button
           onClick={logout}
           className="p-2 text-festival-darkLight hover:text-red-600 rounded-xl transition-all"
@@ -105,7 +105,7 @@ const AdminLayout = () => {
         {/* Brand header */}
         <div className="h-20 border-b border-festival-creamDark px-6 hidden md:flex items-center justify-between">
           <span className="font-serif font-black text-xl text-festival-maroon flex items-center">
-            <span className="mr-1 text-festival-saffron">🕉️</span> Control Center
+            Control Center
           </span>
         </div>
 
