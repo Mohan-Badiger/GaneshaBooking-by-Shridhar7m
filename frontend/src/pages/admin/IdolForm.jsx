@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { ChevronLeft, Plus, Trash2, Upload, Star, Check, Sparkles, Image as ImageIcon } from 'lucide-react';
 import Toast from '../../components/Toast';
+import { getFullImageUrl as resolveFullImageUrl } from '../../utils/urlHelper';
 
 const IdolForm = () => {
   const { id } = useParams();
@@ -188,8 +189,7 @@ const IdolForm = () => {
 
   // Safe absolute path resolving helper
   const getFullImageUrl = (url) => {
-    if (url.startsWith('http')) return url;
-    return `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${url}`;
+    return resolveFullImageUrl(url);
   };
 
   if (loading) {

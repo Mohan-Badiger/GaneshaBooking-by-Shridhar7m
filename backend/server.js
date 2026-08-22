@@ -47,9 +47,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Ensure upload directory exists
-const uploadDir = path.join(__dirname, 'uploads');
+const isVercel = process.env.VERCEL || process.env.NODE_ENV === 'production';
+const uploadDir = isVercel ? '/tmp' : path.join(__dirname, 'uploads');
 try {
-  if (!fs.existsSync(uploadDir)) {
+  if (!isVercel && !fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
   }
 } catch (err) {

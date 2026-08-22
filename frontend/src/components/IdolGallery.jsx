@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { getFullImageUrl } from '../utils/urlHelper';
 
 const IdolGallery = ({ images = [] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -18,9 +19,7 @@ const IdolGallery = ({ images = [] }) => {
 
   // Build clean absolute path or return external URLs
   const getImageUrl = (url) => {
-    if (!url) return fallbackImage;
-    if (url.startsWith('http')) return url;
-    return `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${url}`;
+    return getFullImageUrl(url);
   };
 
   return (

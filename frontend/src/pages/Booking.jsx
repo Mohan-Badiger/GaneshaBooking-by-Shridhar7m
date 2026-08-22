@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ChevronLeft, ShoppingBag, Send, CheckCircle2, MessageSquare, AlertCircle } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
 import { DetailSkeleton } from '../components/LoadingSkeleton';
+import { getFullImageUrl } from '../utils/urlHelper';
 
 const Booking = () => {
   const { id } = useParams();
@@ -198,7 +199,7 @@ Please confirm my booking.`;
                 <img
                   src={
                     idol.images && idol.images.length > 0
-                      ? (idol.images[0].startsWith('http') ? idol.images[0] : `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${idol.images[0]}`)
+                      ? getFullImageUrl(idol.images[0])
                       : 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=200'
                   }
                   alt={idol.name}

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Plus, Search, Edit2, Trash2, Check, X, Star, Ruler, SlidersHorizontal, ArrowUpDown } from 'lucide-react';
 import { TableRowSkeleton } from '../../components/LoadingSkeleton';
 import Toast from '../../components/Toast';
+import { getFullImageUrl } from '../../utils/urlHelper';
 
 const IdolManagement = () => {
   const [idols, setIdols] = useState([]);
@@ -97,9 +98,7 @@ const IdolManagement = () => {
     if (!images || images.length === 0) {
       return 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=150';
     }
-    const img = images[0];
-    if (img.startsWith('http')) return img;
-    return `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${img}`;
+    return getFullImageUrl(images[0]);
   };
 
   return (
