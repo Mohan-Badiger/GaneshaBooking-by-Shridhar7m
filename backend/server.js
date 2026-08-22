@@ -44,8 +44,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // Ensure upload directory exists
 const uploadDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
+try {
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
+} catch (err) {
+  console.warn('Could not create uploads directory (might be read-only file system):', err.message);
 }
 
 // Serve uploads static folder with caching (30 days)
@@ -65,15 +69,16 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Serve frontend build in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/dist'), { maxAge: '1d', etag: true }));
+// Serve frontend build in production if the folder exists
+const frontendDistPath = path.join(__dirname, '../frontend/dist');
+if (process.env.NODE_ENV === 'production' && fs.existsSync(frontendDistPath)) {
+  app.use(express.static(frontendDistPath, { maxAge: '1d', etag: true }));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '..', 'frontend', 'dist', 'index.html'));
+    res.sendFile(path.resolve(frontendDistPath, 'index.html'));
   });
 } else {
-  app.get('/', (req, res) => {
+  app.get('*', (req, res) => {
     res.send('Ganesha Booking Business API is running successfully.');
   });
 }
