@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@theme {
+  --color-festival-cream: #FAF6F0;
+  --color-festival-creamDark: #F4ECE1;
+  --color-festival-maroon: #7A1C1C;
+  --color-festival-maroonDark: #5E1212;
+  --color-festival-orange: #E07A5F;
+  --color-festival-saffron: #F59E0B;
+  --color-festival-gold: #D4AF37;
+  --color-festival-goldLight: #E8C85C;
+  --color-festival-dark: #2E2925;
+  --color-festival-darkLight: #4E4640;
+
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+@utility hover-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -8px rgba(122, 28, 28, 0.15);
+  }
+}
+
+@utility shimmer-loader {
+  background: linear-gradient(90deg, #F4ECE1 25%, #EBE1D3 37%, #F4ECE1 63%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-festival-cream text-festival-dark font-sans antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Custom transitions and scroll behaviors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-festival-creamDark;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-festival-maroon/20 rounded;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-festival-maroon/40;
+}
