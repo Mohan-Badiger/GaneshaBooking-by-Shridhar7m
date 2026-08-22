@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { ShieldCheck, Leaf, Heart, Calendar, MessageSquare, MapPin, Phone, Award } from 'lucide-react';
+import { ShieldCheck, Leaf, Heart, Calendar, MessageSquare, MapPin, Phone, Award, Clock } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
 import IdolCard from '../components/IdolCard';
 import { CardSkeleton } from '../components/LoadingSkeleton';
