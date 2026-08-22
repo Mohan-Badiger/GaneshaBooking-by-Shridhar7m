@@ -218,7 +218,7 @@ const Settings = () => {
             <h3 className="text-sm font-bold text-festival-maroon uppercase tracking-wider mb-4 border-b border-festival-creamDark pb-2">
               3. Pickup & Shipping Instructions
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1">
               {/* Pickup info */}
               <div className="space-y-1">
                 <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider">
@@ -230,21 +230,6 @@ const Settings = () => {
                   value={formData.pickupInfo}
                   onChange={handleInputChange}
                   placeholder="e.g. Please bring a soft blanket or sheet to collect..."
-                  className="form-input"
-                ></textarea>
-              </div>
-
-              {/* Delivery info */}
-              <div className="space-y-1">
-                <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider">
-                  Home Delivery Policy Details
-                </label>
-                <textarea
-                  name="deliveryInfo"
-                  rows="3"
-                  value={formData.deliveryInfo}
-                  onChange={handleInputChange}
-                  placeholder="e.g. Transport charges calculated based on distance..."
                   className="form-input"
                 ></textarea>
               </div>

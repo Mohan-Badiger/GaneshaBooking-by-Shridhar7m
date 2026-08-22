@@ -17,12 +17,9 @@ const Booking = () => {
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
-    address: '',
-    area: '',
     quantity: 1,
     message: '',
     pickupDate: '',
-    deliveryRequired: false,
   });
 
   const [formErrors, setFormErrors] = useState({});
@@ -62,8 +59,6 @@ const Booking = () => {
       errors.mobile = 'Please enter a valid 10-digit Indian mobile number';
     }
 
-    if (!formData.address.trim()) errors.address = 'Detailed address is required';
-    if (!formData.area.trim()) errors.area = 'Area/Locality is required';
     if (!formData.pickupDate) errors.pickupDate = 'Preferred pickup date is required';
 
     if (formData.quantity < 1) {
@@ -128,11 +123,9 @@ Total: ${formattedTotal}
 *Customer Details*
 Name: ${formData.name.trim()}
 Mobile: ${formData.mobile.trim()}
-Address: ${formData.address.trim()}
-Area: ${formData.area.trim()}
-Delivery Required: ${formData.deliveryRequired ? 'Yes (Local delivery charges apply)' : 'No (Store Pickup)'}
+Delivery Type: Store Pickup Only
 
-*Preferred Pickup/Delivery Date*
+*Preferred Store Pickup Date*
 ${formattedDate}
 
 ${formData.message.trim() ? `*Additional Notes*\n${formData.message.trim()}\n` : ''}
@@ -234,7 +227,7 @@ Please confirm my booking.`;
             <div className="bg-amber-50 border border-amber-200 p-3 rounded-xl flex items-start space-x-2 text-xs text-amber-800 leading-relaxed">
               <AlertCircle className="w-4 h-4 text-festival-saffron mt-0.5 shrink-0" />
               <p>
-                <strong>No online payments:</strong> This form only registers your booking and prepares a WhatsApp request. Final payment is processed at workshop pickup or delivery.
+                <strong>No online payments:</strong> This form only registers your booking and prepares a WhatsApp request. Final payment is processed at workshop pickup.
               </p>
             </div>
           </div>
@@ -332,42 +325,6 @@ Please confirm my booking.`;
                 </div>
               </div>
 
-              {/* Address */}
-              <div className="space-y-1">
-                <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider">
-                  Detailed Address *
-                </label>
-                <textarea
-                  name="address"
-                  rows="2"
-                  value={formData.address}
-                  onChange={handleInputChange}
-                  placeholder="Enter house number, building/street name"
-                  className={`w-full px-4 py-3 bg-festival-cream/30 border ${
-                    formErrors.address ? 'border-red-400 focus:ring-red-100' : 'border-festival-creamDark focus:ring-festival-maroon/20'
-                  } rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all`}
-                ></textarea>
-                {formErrors.address && <p className="text-xs font-medium text-red-600">{formErrors.address}</p>}
-              </div>
-
-              {/* Area / Locality */}
-              <div className="space-y-1">
-                <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider">
-                  Area / Locality *
-                </label>
-                <input
-                  type="text"
-                  name="area"
-                  value={formData.area}
-                  onChange={handleInputChange}
-                  placeholder="e.g. Main Road, Craft Market"
-                  className={`w-full px-4 py-3 bg-festival-cream/30 border ${
-                    formErrors.area ? 'border-red-400 focus:ring-red-100' : 'border-festival-creamDark focus:ring-festival-maroon/20'
-                  } rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all`}
-                />
-                {formErrors.area && <p className="text-xs font-medium text-red-600">{formErrors.area}</p>}
-              </div>
-
               {/* Optional Message */}
               <div className="space-y-1">
                 <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider">
@@ -381,21 +338,6 @@ Please confirm my booking.`;
                   placeholder="Any special colors request or instructions..."
                   className="form-input"
                 ></textarea>
-              </div>
-
-              {/* Delivery Required */}
-              <div className="flex items-center space-x-2.5 pt-2">
-                <input
-                  type="checkbox"
-                  id="deliveryRequired"
-                  name="deliveryRequired"
-                  checked={formData.deliveryRequired}
-                  onChange={handleInputChange}
-                  className="w-5 h-5 accent-festival-maroon rounded border-festival-creamDark focus:ring-festival-maroon/20 focus:outline-none cursor-pointer"
-                />
-                <label htmlFor="deliveryRequired" className="text-sm font-medium text-festival-darkLight select-none cursor-pointer">
-                  Request home delivery? (Local transport charges extra)
-                </label>
               </div>
 
               {/* Submit CTA */}
