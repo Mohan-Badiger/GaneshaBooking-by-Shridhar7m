@@ -26,6 +26,7 @@ app.use(
   helmet({
     contentSecurityPolicy: false, // Turn off CSP for dev convenience with images, but keep other protection
     crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: { policy: 'cross-origin' }, // Allow cross-origin loading of static uploads
   })
 );
 
