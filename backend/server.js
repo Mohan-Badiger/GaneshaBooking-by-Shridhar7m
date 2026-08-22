@@ -48,8 +48,8 @@ if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
 
-// Serve uploads static folder
-app.use('/uploads', express.static(uploadDir));
+// Serve uploads static folder with caching (30 days)
+app.use('/uploads', express.static(uploadDir, { maxAge: '30d' }));
 
 // Mount REST APIs
 app.use('/api', apiRoutes);
@@ -67,7 +67,7 @@ app.use((err, req, res, next) => {
 
 // Serve frontend build in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+  app.use(express.static(path.join(__dirname, '../frontend/dist'), { maxAge: '1d', etag: true }));
 
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'frontend', 'dist', 'index.html'));

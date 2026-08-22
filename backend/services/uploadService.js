@@ -2,6 +2,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const cloudinary = require('cloudinary').v2;
+const sharp = require('sharp');
 
 // Configure Cloudinary if credentials are provided
 const isCloudinaryConfigured =
@@ -51,6 +52,31 @@ const upload = multer({
   limits: { fileSize: 15 * 1024 * 1024 }, // 15MB limit
 });
 
+// Helper function to compress and convert local file to WebP
+const compressLocalToWebp = async (file) => {
+  try {
+    const webpFilename = path.basename(file.path, path.extname(file.path)) + '.webp';
+    const webpPath = path.join(path.dirname(file.path), webpFilename);
+
+    await sharp(file.path)
+      .resize({ width: 1000, fit: 'inside', withoutEnlargement: true })
+      .webp({ quality: 80 })
+      .toFile(webpPath);
+
+    // Delete original file to save space
+    try {
+      fs.unlinkSync(file.path);
+    } catch (unlinkErr) {
+      console.error('Failed to delete original raw file:', unlinkErr);
+    }
+
+    return `/uploads/${webpFilename}`;
+  } catch (err) {
+    console.error('Local WebP compression failed, returning original path:', err);
+    return `/uploads/${path.basename(file.path)}`;
+  }
+};
+
 // Upload processor that uploads to Cloudinary or falls back to local storage URL
 const handleImageUpload = async (file) => {
   if (
@@ -61,6 +87,7 @@ const handleImageUpload = async (file) => {
     try {
       const result = await cloudinary.uploader.upload(file.path, {
         folder: 'ganesha_idols',
+        format: 'webp',
         transformation: [{ width: 1000, crop: 'limit', quality: 'auto' }],
       });
       // Remove local copy after successful Cloudinary upload
@@ -72,11 +99,10 @@ const handleImageUpload = async (file) => {
       return result.secure_url;
     } catch (error) {
       console.error('Cloudinary upload error, using local storage fallback:', error);
-      return `/uploads/${path.basename(file.path)}`;
+      return await compressLocalToWebp(file);
     }
   } else {
-    // Local storage path serving
-    return `/uploads/${path.basename(file.path)}`;
+    return await compressLocalToWebp(file);
   }
 };
 
