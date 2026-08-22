@@ -25,7 +25,7 @@ export const DetailSkeleton = () => {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 animate-pulse">
       {/* Left: Galleries */}
       <div className="space-y-4">
-        <div className="w-full aspect-[4/5] rounded-3xl shimmer-loader"></div>
+        <div className="w-full aspect-4/5 rounded-3xl shimmer-loader"></div>
         <div className="grid grid-cols-4 gap-3">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="aspect-square rounded-xl shimmer-loader"></div>

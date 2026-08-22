@@ -27,9 +27,9 @@ import { LayoutDashboard, ShoppingBag, Plus, Settings as SettingsIcon, LogOut, A
 // Wrapper for Customer Pages (With Navbar and Footer)
 const CustomerLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-[#FAF6F0]">
+    <div className="flex flex-col min-h-screen bg-festival-cream">
       <Navbar />
-      <main className="flex-grow">
+      <main className="grow">
         <Outlet />
       </main>
       <Footer />
@@ -44,7 +44,7 @@ const ProtectedRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FAF6F0]">
+      <div className="min-h-screen flex items-center justify-center bg-festival-cream">
         <div className="w-10 h-10 border-4 border-festival-maroon border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
@@ -117,7 +117,7 @@ const AdminLayout = () => {
         </div>
 
         {/* Links */}
-        <nav className="flex-grow p-4 space-y-1.5 overflow-y-auto">
+        <nav className="grow p-4 space-y-1.5 overflow-y-auto">
           {sidebarLinks.map((link, idx) => (
             <NavLink
               key={idx}
@@ -158,7 +158,7 @@ const AdminLayout = () => {
       )}
 
       {/* Main Panel Content Area */}
-      <main className="flex-grow p-4 md:p-8 overflow-y-auto max-w-full">
+      <main className="grow p-4 md:p-8 overflow-y-auto max-w-full">
         <Outlet />
       </main>
     </div>

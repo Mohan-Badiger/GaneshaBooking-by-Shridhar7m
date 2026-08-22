@@ -21,19 +21,19 @@ const Footer = () => {
             </p>
             <div className="space-y-3.5 pt-2">
               <div className="flex items-center space-x-3 text-sm">
-                <Clock className="w-5 h-5 text-festival-saffron flex-shrink-0" />
+                <Clock className="w-5 h-5 text-festival-saffron shrink-0" />
                 <span>
                   <strong className="text-white">Hours:</strong> {settings.businessHours} (All days)
                 </span>
               </div>
               <div className="flex items-center space-x-3 text-sm">
-                <Phone className="w-5 h-5 text-festival-saffron flex-shrink-0" />
+                <Phone className="w-5 h-5 text-festival-saffron shrink-0" />
                 <span>
                   <strong className="text-white">Call:</strong> {settings.phoneNumber}
                 </span>
               </div>
               <div className="flex items-center space-x-3 text-sm">
-                <MessageSquare className="w-5 h-5 text-festival-saffron flex-shrink-0" />
+                <MessageSquare className="w-5 h-5 text-festival-saffron shrink-0" />
                 <span>
                   <strong className="text-white">WhatsApp:</strong> {settings.whatsappNumber}
                 </span>
@@ -45,7 +45,7 @@ const Footer = () => {
           <div className="space-y-6">
             <h4 className="text-lg font-serif font-bold text-white border-b border-[#302A27] pb-3">Workshop Address</h4>
             <div className="flex items-start space-x-3 text-sm">
-              <MapPin className="w-5 h-5 text-festival-saffron flex-shrink-0 mt-0.5" />
+              <MapPin className="w-5 h-5 text-festival-saffron shrink-0 mt-0.5" />
               <p className="leading-relaxed">
                 {settings.address}
               </p>

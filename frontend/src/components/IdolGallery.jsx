@@ -26,7 +26,7 @@ const IdolGallery = ({ images = [] }) => {
   return (
     <div className="space-y-4">
       {/* Main Image Frame */}
-      <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-festival-cream border border-festival-creamDark shadow-sm group">
+      <div className="relative aspect-4/5 rounded-3xl overflow-hidden bg-festival-cream border border-festival-creamDark shadow-sm group">
         <img
           src={getImageUrl(galleryList[activeIndex])}
           alt={`Ganesha View ${activeIndex + 1}`}
@@ -66,7 +66,7 @@ const IdolGallery = ({ images = [] }) => {
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
-              className={`relative flex-shrink-0 w-20 aspect-[4/5] rounded-xl overflow-hidden border-2 transition-all ${
+              className={`relative shrink-0 w-20 aspect-4/5 rounded-xl overflow-hidden border-2 transition-all ${
                 activeIndex === idx
                   ? 'border-festival-maroon shadow-md scale-95'
                   : 'border-festival-creamDark opacity-75 hover:opacity-100'

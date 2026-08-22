@@ -27,7 +27,7 @@ const IdolCard = ({ idol }) => {
       )}
 
       {/* Idol Image Container */}
-      <div className="relative aspect-[4/5] overflow-hidden bg-festival-cream">
+      <div className="relative aspect-4/5 overflow-hidden bg-festival-cream">
         <img
           src={primaryImage}
           alt={name}
@@ -45,7 +45,7 @@ const IdolCard = ({ idol }) => {
       </div>
 
       {/* Content */}
-      <div className="p-5 flex flex-col flex-grow">
+      <div className="p-5 flex flex-col grow">
         {/* Material & Availability Status */}
         <div className="flex justify-between items-center mb-1">
           <span className="text-xs text-festival-darkLight/70 font-medium truncate max-w-[70%]">
@@ -70,7 +70,7 @@ const IdolCard = ({ idol }) => {
         {/* Height and Pricing */}
         <div className="flex justify-between items-baseline pt-2 pb-4 mt-auto border-t border-dashed border-festival-creamDark">
           <div className="flex items-center text-festival-darkLight text-sm font-medium">
-            <Ruler className="w-4 h-4 text-festival-saffron mr-1.5 flex-shrink-0" />
+            <Ruler className="w-4 h-4 text-festival-saffron mr-1.5 shrink-0" />
             <span>Height: {height} Feet</span>
           </div>
           <div className="text-xl font-extrabold text-festival-maroon">
@@ -98,7 +98,7 @@ const IdolCard = ({ idol }) => {
               href="https://wa.me/919876543210" // Replaced by general helper or custom trigger
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#4E4640] hover:bg-[#3E3833] text-[#DED7D2] font-semibold rounded-xl text-xs transition-all"
+              className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-festival-darkLight hover:bg-[#3E3833] text-[#DED7D2] font-semibold rounded-xl text-xs transition-all"
             >
               Inquire
             </a>

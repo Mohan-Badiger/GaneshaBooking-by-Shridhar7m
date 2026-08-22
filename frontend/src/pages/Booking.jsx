@@ -200,7 +200,7 @@ Please confirm my booking.`;
               Booking Summary
             </h2>
             <div className="flex gap-4">
-              <div className="w-20 aspect-square rounded-2xl overflow-hidden bg-festival-cream border border-festival-creamDark flex-shrink-0">
+              <div className="w-20 aspect-square rounded-2xl overflow-hidden bg-festival-cream border border-festival-creamDark shrink-0">
                 <img
                   src={
                     idol.images && idol.images.length > 0
@@ -232,7 +232,7 @@ Please confirm my booking.`;
             </div>
 
             <div className="bg-amber-50 border border-amber-200 p-3 rounded-xl flex items-start space-x-2 text-xs text-amber-800 leading-relaxed">
-              <AlertCircle className="w-4 h-4 text-festival-saffron mt-0.5 flex-shrink-0" />
+              <AlertCircle className="w-4 h-4 text-festival-saffron mt-0.5 shrink-0" />
               <p>
                 <strong>No online payments:</strong> This form only registers your booking and prepares a WhatsApp request. Final payment is processed at workshop pickup or delivery.
               </p>
@@ -379,7 +379,7 @@ Please confirm my booking.`;
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="Any special colors request or instructions..."
-                  className="w-full px-4 py-3 bg-festival-cream/30 border border-festival-creamDark rounded-2xl text-sm focus:outline-none focus:ring-4 focus:ring-festival-maroon/20 focus:border-festival-maroon transition-all"
+                  className="form-input"
                 ></textarea>
               </div>
 
@@ -445,7 +445,7 @@ Please confirm my booking.`;
           </div>
 
           <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-xs text-amber-800 leading-relaxed text-left flex items-start space-x-2">
-            <AlertCircle className="w-5 h-5 text-festival-saffron mt-0.5 flex-shrink-0" />
+            <AlertCircle className="w-5 h-5 text-festival-saffron mt-0.5 shrink-0" />
             <p>
               <strong>Important Step:</strong> Clicking the button below opens WhatsApp with a pre-filled message. You <strong>MUST send the message</strong> inside WhatsApp. Your booking is NOT confirmed until we receive the message and reply with confirmation.
             </p>
