@@ -33,7 +33,7 @@
 }
 
 @utility form-input {
-  @apply w-full px-4 py-3 bg-festival-cream/30 rounded-2xl text-sm focus:outline-none focus:ring-4 focus:ring-festival-maroon/20 transition-all;
+  @apply w-full px-4 py-3 bg-festival-cream/30 rounded-2xl text-base md:text-sm focus:outline-none focus:ring-4 focus:ring-festival-maroon/20 transition-all;
   border: 1px solid var(--color-festival-creamDark);
   &:focus {
     border-color: var(--color-festival-maroon);
@@ -41,14 +41,12 @@
 }
 
 @utility search-input {
-  @apply w-full pl-10 pr-4 py-2.5 bg-festival-cream/30 rounded-2xl text-xs focus:outline-none focus:ring-4 focus:ring-festival-maroon/20 transition-all;
+  @apply w-full pl-10 pr-4 py-3 md:py-2.5 bg-festival-cream/30 rounded-2xl text-base md:text-xs focus:outline-none focus:ring-4 focus:ring-festival-maroon/20 transition-all;
   border: 1px solid var(--color-festival-creamDark);
   &:focus {
     border-color: var(--color-festival-maroon);
   }
 }
-
-
 
 @keyframes shimmer {
   0% {
@@ -60,9 +58,17 @@
 }
 
 @layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-festival-cream text-festival-dark font-sans antialiased;
     -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 320px;
   }
 
   h1, h2, h3, h4, h5, h6 {
