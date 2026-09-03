@@ -50,16 +50,16 @@ const Home = () => {
       {/* 1. Hero Section - Modern Luxury & Devotional Elegance */}
       <section className="relative bg-linear-to-b from-[#2E040B] via-[#1E0307] to-[#120204] text-white py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Divine Ambient Aura / Backlit Halos */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-[500px] h-80 sm:h-[500px] bg-festival-gold/15 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-125 h-80 sm:h-125 bg-festival-gold/15 rounded-full blur-[100px] pointer-events-none"></div>
         <div className="absolute -top-24 right-0 w-72 h-72 sm:w-96 sm:h-96 bg-festival-saffron/10 rounded-full blur-[90px] pointer-events-none"></div>
         <div className="absolute -bottom-20 -left-20 w-64 h-64 sm:w-80 sm:h-80 bg-festival-maroon/40 rounded-full blur-[80px] pointer-events-none"></div>
 
         {/* Sacred subtle watermarked motif in background */}
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(212,175,55,0.05)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-40"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(212,175,55,0.05)_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none opacity-40"></div>
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            
+
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-5 sm:space-y-7 text-center lg:text-left">
               {/* Devotional Kicker Badge */}
@@ -133,7 +133,7 @@ const Home = () => {
                     className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
                     loading="eager"
                   />
-                  
+
                   {/* Subtle Cinematic Vignette */}
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
 
