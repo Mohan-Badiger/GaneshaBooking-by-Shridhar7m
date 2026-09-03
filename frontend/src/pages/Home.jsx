@@ -47,123 +47,95 @@ const Home = () => {
 
   return (
     <div className="space-y-12 sm:space-y-16 lg:space-y-20 pb-16 font-sans">
-      {/* 1. Hero Section - Modern Luxury & Devotional Elegance */}
-      <section className="relative bg-linear-to-b from-[#2E040B] via-[#1E0307] to-[#120204] text-white py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Divine Ambient Aura / Backlit Halos */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-125 h-80 sm:h-125 bg-festival-gold/15 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="absolute -top-24 right-0 w-72 h-72 sm:w-96 sm:h-96 bg-festival-saffron/10 rounded-full blur-[90px] pointer-events-none"></div>
-        <div className="absolute -bottom-20 -left-20 w-64 h-64 sm:w-80 sm:h-80 bg-festival-maroon/40 rounded-full blur-[80px] pointer-events-none"></div>
+      {/* 1. Hero Section - 100% Natural Photographic Immersion */}
+      <section className="relative text-white min-h-145 sm:min-h-160 lg:min-h-170 flex items-center overflow-hidden bg-[#130306]">
+        {/* Full-bleed Natural Photograph as Background */}
+        <div
+          className="absolute inset-0 bg-cover bg-no-repeat bg-position-[82%_center] sm:bg-position-[80%_center] lg:bg-position-[right_center]"
+          style={{ backgroundImage: `url('/divine_ganesha_hero.webp')` }}
+        />
 
-        {/* Sacred subtle watermarked motif in background */}
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(212,175,55,0.05)_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none opacity-40"></div>
+        {/* Mobile & Tablet Gradient Overlay: Smooth vertical blend so text is crisp on top and Ganesha radiates below */}
+        <div
+          className="absolute inset-0 lg:hidden pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(19, 3, 6, 0.95) 0%, rgba(19, 3, 6, 0.82) 45%, rgba(19, 3, 6, 0.35) 72%, rgba(19, 3, 6, 0.9) 100%)',
+          }}
+        />
 
-        <div className="max-w-7xl mx-auto w-full relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        {/* Desktop Gradient Overlay: Smooth horizontal blend matching the natural dark bokeh on the left */}
+        <div
+          className="absolute inset-0 hidden lg:block pointer-events-none"
+          style={{
+            background: 'linear-gradient(to right, rgba(19, 3, 6, 0.97) 0%, rgba(19, 3, 6, 0.88) 42%, rgba(19, 3, 6, 0.3) 72%, transparent 100%)',
+          }}
+        />
 
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-5 sm:space-y-7 text-center lg:text-left">
-              {/* Devotional Kicker Badge */}
-              <div className="inline-flex items-center gap-2 bg-festival-gold/10 border border-festival-gold/30 text-festival-goldLight text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full shadow-inner backdrop-blur-xs">
-                <Sparkles className="w-3.5 h-3.5 text-festival-saffron animate-pulse" />
-                <span>Eco-Friendly Shadu Clay</span>
-              </div>
-
-              {/* Main Editorial Headline */}
-              <div className="space-y-1 sm:space-y-2">
-                <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-festival-cream leading-[1.15] sm:leading-[1.12]">
-                  Divine Handcrafted <br className="hidden sm:inline" />
-                  <span className="bg-linear-to-r from-festival-goldLight via-festival-saffron to-amber-400 bg-clip-text text-transparent font-normal">
-                    Ganesh Idols
-                  </span>{' '}
-                  for Your Home
-                </h1>
-                <p className="text-sm sm:text-base md:text-lg text-festival-cream/80 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed pt-2">
-                  Welcome Lord Ganesha with 100% natural, biodegradable clay statues hand-sculpted by hereditary artisans. Dissolves safely at home with zero harmful chemicals.
-                </p>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1">
-                <Link
-                  to="/idols"
-                  className="px-8 py-4 bg-linear-to-r from-festival-goldLight via-festival-gold to-amber-500 hover:from-amber-400 hover:to-amber-600 text-festival-maroonDark font-black rounded-full shadow-[0_10px_25px_-5px_rgba(197,160,40,0.35)] hover:shadow-[0_15px_35px_-5px_rgba(197,160,40,0.5)] transition-all duration-300 hover:scale-[1.02] active:scale-95 text-center text-sm sm:text-base flex items-center justify-center gap-2"
-                >
-                  <Sparkles className="w-4 h-4 text-festival-maroonDark" />
-                  <span>Explore Ganesh Idols</span>
-                </Link>
-                <a
-                  href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=Hello,%20I%20am%20interested%20in%20booking%20a%20Ganesh%20idol.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-7 py-4 bg-white/5 hover:bg-white/10 text-festival-cream hover:text-white font-bold rounded-full border border-white/20 hover:border-white/40 transition-all duration-300 active:scale-95 text-center text-sm sm:text-base flex items-center justify-center gap-2.5 backdrop-blur-md shadow-xs"
-                >
-                  <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
-                  <span>Book via WhatsApp</span>
-                </a>
-              </div>
-
-              {/* Trust Minimalist Metric Strip */}
-              <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs text-festival-cream/70">
-                <div className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-festival-gold" />
-                  <span>100% Pure Shadu Clay</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Leaf className="w-4 h-4 text-emerald-400" />
-                  <span>Dissolves at Home</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Award className="w-4 h-4 text-festival-gold" />
-                  <span>Direct Artisan Pricing</span>
-                </div>
-              </div>
+        {/* Foreground Content */}
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 relative z-10">
+          <div className="max-w-2xl text-center lg:text-left space-y-5 sm:space-y-6">
+            
+            {/* Devotional Kicker Badge */}
+            <div className="inline-flex items-center gap-2 bg-festival-gold/15 border border-festival-gold/35 text-festival-goldLight text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full shadow-inner backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5 text-festival-saffron animate-pulse" />
+              <span>Eco-Friendly Shadu Clay</span>
             </div>
 
-            {/* Right Column: Grand Temple-Arch Image Showcase */}
-            <div className="lg:col-span-5 relative flex items-center justify-center">
-              {/* Backlit Golden Halo */}
-              <div className="absolute inset-0 bg-radial from-festival-gold/30 via-festival-saffron/10 to-transparent blur-2xl rounded-full scale-110 pointer-events-none"></div>
+            {/* Main Editorial Headline */}
+            <div className="space-y-2">
+              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-festival-cream leading-[1.15] sm:leading-[1.12]">
+                Divine Handcrafted <br className="hidden sm:inline" />
+                <span className="bg-linear-to-r from-festival-goldLight via-festival-saffron to-amber-400 bg-clip-text text-transparent font-normal">
+                  Ganesh Idols
+                </span>{' '}
+                for Your Home
+              </h1>
+              <p className="text-sm sm:text-base md:text-lg text-festival-cream/85 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed pt-1 sm:pt-2">
+                Welcome Lord Ganesha with 100% natural, biodegradable clay statues hand-sculpted by hereditary artisans. Dissolves safely at home with zero harmful chemicals.
+              </p>
+            </div>
 
-              {/* The Arch Card Container */}
-              <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-4/5 rounded-t-[120px] sm:rounded-t-[160px] rounded-b-3xl p-1.5 sm:p-2 bg-linear-to-b from-festival-gold/40 via-festival-gold/15 to-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-md group">
-                <div className="w-full h-full rounded-t-[115px] sm:rounded-t-[155px] rounded-b-[22px] overflow-hidden relative bg-festival-dark">
-                  <img
-                    src="/divine_ganesha_hero.webp"
-                    alt="Divine Handcrafted Ganesh Idol"
-                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                    loading="eager"
-                  />
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+              <Link
+                to="/idols"
+                className="px-8 py-4 bg-linear-to-r from-festival-goldLight via-festival-gold to-amber-500 hover:from-amber-400 hover:to-amber-600 text-festival-maroonDark font-black rounded-full shadow-[0_10px_25px_-5px_rgba(197,160,40,0.35)] hover:shadow-[0_15px_35px_-5px_rgba(197,160,40,0.5)] transition-all duration-300 hover:scale-[1.02] active:scale-95 text-center text-sm sm:text-base flex items-center justify-center gap-2"
+              >
+                <Sparkles className="w-4 h-4 text-festival-maroonDark" />
+                <span>Explore Ganesh Idols</span>
+              </Link>
+              <a
+                href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=Hello,%20I%20am%20interested%20in%20booking%20a%20Ganesh%20idol.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-7 py-4 bg-black/40 hover:bg-black/60 text-festival-cream hover:text-white font-bold rounded-full border border-white/20 hover:border-white/40 transition-all duration-300 active:scale-95 text-center text-sm sm:text-base flex items-center justify-center gap-2.5 backdrop-blur-md shadow-xs"
+              >
+                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
+                <span>Book via WhatsApp</span>
+              </a>
+            </div>
 
-                  {/* Subtle Cinematic Vignette */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
-
-                  {/* Top Floating Glass Badge */}
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap bg-black/50 backdrop-blur-md border border-white/20 text-festival-cream px-3.5 py-1.5 rounded-full text-[11px] font-medium tracking-wide flex items-center gap-1.5 shadow-lg">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>2026 Collection Available</span>
-                  </div>
-
-                  {/* Bottom Minimalist Glass Card */}
-                  <div className="absolute bottom-4 left-4 right-4 z-10 bg-black/60 backdrop-blur-md border border-white/20 rounded-2xl p-3.5 text-left shadow-lg">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-festival-cream font-serif font-bold text-sm">Shree Siddhivinayak</p>
-                        <p className="text-[11px] text-festival-cream/70 font-light">Heritage Traditional Craft</p>
-                      </div>
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider bg-festival-gold/25 text-festival-goldLight border border-festival-gold/40 px-2.5 py-1 rounded-full shrink-0">
-                        100% Eco
-                      </span>
-                    </div>
-                  </div>
-                </div>
+            {/* Trust Minimalist Metric Strip */}
+            <div className="pt-4 border-t border-white/15 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs sm:text-sm text-festival-cream/80">
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-festival-gold" />
+                <span>100% Pure Shadu Clay</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Leaf className="w-4 h-4 text-emerald-400" />
+                <span>Dissolves at Home</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Award className="w-4 h-4 text-festival-gold" />
+                <span>Direct Artisan Pricing</span>
               </div>
             </div>
 
           </div>
         </div>
 
-        {/* Elegant Bottom Border Gradient Line */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-festival-gold to-transparent opacity-80"></div>
+        {/* Elegant Bottom Gold Accent Line */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-festival-gold/60 to-transparent pointer-events-none"></div>
       </section>
 
       {/* 2. Featured Ganesh Idols */}
