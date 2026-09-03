@@ -98,20 +98,26 @@ const AdminLayout = () => {
 
       {/* Sidebar Navigation */}
       <aside
-        className={`w-64 bg-white border-r border-festival-creamDark flex flex-col fixed md:sticky top-0 h-[calc(100vh-4rem)] md:h-screen z-20 transition-all duration-300 ${
+        className={`w-64 bg-white border-r border-festival-creamDark flex flex-col fixed md:sticky top-0 h-full md:h-screen z-40 transition-all duration-300 shadow-xl md:shadow-none ${
           sidebarOpen ? 'left-0' : '-left-64 md:left-0'
         }`}
       >
         {/* Brand header */}
-        <div className="h-20 border-b border-festival-creamDark px-6 hidden md:flex items-center justify-between">
-          <span className="font-serif font-black text-xl text-festival-maroon flex items-center">
+        <div className="h-16 md:h-20 border-b border-festival-creamDark px-6 flex items-center justify-between">
+          <span className="font-serif font-black text-lg md:text-xl text-festival-maroon flex items-center">
             Control Center
           </span>
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="md:hidden p-1.5 rounded-lg text-festival-darkLight hover:bg-festival-cream cursor-pointer"
+          >
+            <X className="w-5 h-5" />
+          </button>
         </div>
 
         {/* User profile brief */}
-        <div className="p-6 border-b border-festival-creamDark bg-festival-cream/20">
-          <p className="text-xs text-festival-darkLight/40 font-bold uppercase tracking-wider">Signed in as</p>
+        <div className="p-4 sm:p-6 border-b border-festival-creamDark bg-festival-cream/20">
+          <p className="text-[10px] sm:text-xs text-festival-darkLight/40 font-bold uppercase tracking-wider">Signed in as</p>
           <h4 className="font-bold text-sm text-festival-maroon truncate mt-0.5">{admin?.name || 'Administrator'}</h4>
           <p className="text-[10px] text-festival-darkLight/60 truncate">{admin?.email}</p>
         </div>
@@ -142,7 +148,7 @@ const AdminLayout = () => {
           </Link>
           <button
             onClick={logout}
-            className="flex items-center justify-center gap-2 w-full py-2.5 text-red-700 bg-red-50 hover:bg-red-100 font-bold rounded-xl text-xs transition-all"
+            className="flex items-center justify-center gap-2 w-full py-2.5 text-red-700 bg-red-50 hover:bg-red-100 font-bold rounded-xl text-xs transition-all cursor-pointer"
           >
             <LogOut className="w-4.5 h-4.5" /> Log Out
           </button>
@@ -153,7 +159,7 @@ const AdminLayout = () => {
       {sidebarOpen && (
         <div
           onClick={() => setSidebarOpen(false)}
-          className="fixed inset-0 bg-black/40 z-10 md:hidden"
+          className="fixed inset-0 bg-black/40 backdrop-blur-xs z-30 md:hidden"
         ></div>
       )}
 
