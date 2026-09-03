@@ -176,26 +176,26 @@ Please confirm my booking.`;
   }).format(itemTotal);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 font-sans space-y-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 font-sans space-y-6 sm:space-y-8">
       {/* Back button */}
       <div>
         <Link
           to={`/idols/${idol._id}`}
-          className="inline-flex items-center text-sm font-bold text-festival-maroon/70 hover:text-festival-maroon transition-colors"
+          className="inline-flex items-center text-xs sm:text-sm font-bold text-festival-maroon/70 hover:text-festival-maroon transition-colors"
         >
           <ChevronLeft className="w-4 h-4 mr-1" /> Back to details
         </Link>
       </div>
 
       {!isSubmitted ? (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Left: Summary panel */}
-          <div className="lg:col-span-5 bg-white border border-festival-creamDark rounded-3xl p-6 shadow-sm space-y-5">
-            <h2 className="text-lg font-serif font-medium text-festival-maroon border-b border-festival-creamDark pb-3">
+          <div className="lg:col-span-5 bg-white border border-festival-creamDark rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xs space-y-4 sm:space-y-5">
+            <h2 className="text-base sm:text-lg font-serif font-medium text-festival-maroon border-b border-festival-creamDark pb-2.5 sm:pb-3">
               Booking Summary
             </h2>
-            <div className="flex gap-4">
-              <div className="w-20 aspect-square rounded-2xl overflow-hidden bg-festival-cream border border-festival-creamDark shrink-0">
+            <div className="flex gap-3 sm:gap-4 items-center">
+              <div className="w-16 sm:w-20 aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-festival-cream border border-festival-creamDark shrink-0">
                 <img
                   src={
                     idol.images && idol.images.length > 0
@@ -206,44 +206,44 @@ Please confirm my booking.`;
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="space-y-1">
-                <h3 className="font-bold text-festival-maroon text-sm line-clamp-1">{idol.name}</h3>
-                <p className="text-xs text-festival-darkLight/60">Height: {idol.height} Feet</p>
-                <p className="text-xs font-bold text-festival-maroon">{formattedUnitPrice} each</p>
+              <div className="space-y-0.5 sm:space-y-1">
+                <h3 className="font-bold text-festival-maroon text-xs sm:text-sm line-clamp-1">{idol.name}</h3>
+                <p className="text-[11px] sm:text-xs text-festival-darkLight/60">Height: {idol.height} Feet</p>
+                <p className="text-xs sm:text-sm font-bold text-festival-maroon">{formattedUnitPrice} each</p>
               </div>
             </div>
 
             <hr className="border-festival-creamDark" />
 
-            <div className="space-y-2 text-sm text-festival-darkLight/80">
+            <div className="space-y-2 text-xs sm:text-sm text-festival-darkLight/80">
               <div className="flex justify-between">
                 <span>Quantity</span>
                 <span className="font-bold">x {formData.quantity}</span>
               </div>
-              <div className="flex justify-between text-base font-bold text-festival-maroon pt-2 border-t border-dashed border-festival-creamDark">
+              <div className="flex justify-between text-sm sm:text-base font-bold text-festival-maroon pt-2 border-t border-dashed border-festival-creamDark">
                 <span>Estimated Total</span>
                 <span>{formattedTotalAmount}</span>
               </div>
             </div>
 
-            <div className="bg-amber-50 border border-amber-200 p-3 rounded-xl flex items-start space-x-2 text-xs text-amber-800 leading-relaxed">
+            <div className="bg-amber-50 border border-amber-200 p-3 rounded-xl flex items-start space-x-2 text-[11px] sm:text-xs text-amber-800 leading-relaxed">
               <AlertCircle className="w-4 h-4 text-festival-saffron mt-0.5 shrink-0" />
               <p>
-                <strong>No online payments:</strong> This form only registers your booking and prepares a WhatsApp request. Final payment is processed at workshop pickup.
+                <strong>No online payments:</strong> This form registers your booking and prepares a WhatsApp request. Final payment is processed at workshop pickup.
               </p>
             </div>
           </div>
 
           {/* Right: Booking Form */}
-          <div className="lg:col-span-7 bg-white border border-festival-creamDark rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
-            <h2 className="text-xl font-serif font-medium text-festival-maroon border-b border-festival-creamDark pb-4">
+          <div className="lg:col-span-7 bg-white border border-festival-creamDark rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 shadow-xs space-y-5 sm:space-y-6">
+            <h2 className="text-lg sm:text-xl font-serif font-medium text-festival-maroon border-b border-festival-creamDark pb-3 sm:pb-4">
               Enter Your Details
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
               {/* Customer Name */}
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider">
+                <label className="block text-[11px] sm:text-xs font-bold text-festival-maroon uppercase tracking-wider">
                   Full Name *
                 </label>
                 <input
@@ -254,14 +254,14 @@ Please confirm my booking.`;
                   placeholder="Enter your full name"
                   className={`w-full px-4 py-3 bg-festival-cream/30 border ${
                     formErrors.name ? 'border-red-400 focus:ring-red-100' : 'border-festival-creamDark focus:ring-festival-maroon/20'
-                  } rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all`}
+                  } rounded-2xl text-base md:text-sm focus:outline-none focus:ring-4 transition-all`}
                 />
                 {formErrors.name && <p className="text-xs font-medium text-red-600">{formErrors.name}</p>}
               </div>
 
               {/* Mobile Number */}
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider">
+                <label className="block text-[11px] sm:text-xs font-bold text-festival-maroon uppercase tracking-wider">
                   Mobile Number (WhatsApp preferred) *
                 </label>
                 <input
@@ -272,22 +272,22 @@ Please confirm my booking.`;
                   placeholder="Enter 10-digit mobile number"
                   className={`w-full px-4 py-3 bg-festival-cream/30 border ${
                     formErrors.mobile ? 'border-red-400 focus:ring-red-100' : 'border-festival-creamDark focus:ring-festival-maroon/20'
-                  } rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all`}
+                  } rounded-2xl text-base md:text-sm focus:outline-none focus:ring-4 transition-all`}
                 />
                 {formErrors.mobile && <p className="text-xs font-medium text-red-600">{formErrors.mobile}</p>}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Quantity input */}
                 <div className="space-y-1">
-                  <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider">
+                  <label className="block text-[11px] sm:text-xs font-bold text-festival-maroon uppercase tracking-wider">
                     Quantity *
                   </label>
                   <div className="flex items-center space-x-2">
                     <button
                       type="button"
                       onClick={() => handleQuantityChange(formData.quantity - 1)}
-                      className="w-10 h-10 border border-festival-creamDark bg-festival-cream rounded-xl font-bold flex items-center justify-center hover:bg-festival-creamDark focus:outline-none"
+                      className="w-11 h-11 border border-festival-creamDark bg-festival-cream rounded-xl font-bold flex items-center justify-center hover:bg-festival-creamDark focus:outline-none cursor-pointer active:scale-95 transition-transform"
                     >
                       -
                     </button>
@@ -297,12 +297,12 @@ Please confirm my booking.`;
                       min="1"
                       value={formData.quantity}
                       onChange={(e) => handleQuantityChange(e.target.value)}
-                      className="w-16 text-center py-2 bg-festival-cream/30 border border-festival-creamDark rounded-xl text-sm font-bold focus:outline-none"
+                      className="w-16 text-center py-2.5 bg-festival-cream/30 border border-festival-creamDark rounded-xl text-base md:text-sm font-bold focus:outline-none"
                     />
                     <button
                       type="button"
                       onClick={() => handleQuantityChange(formData.quantity + 1)}
-                      className="w-10 h-10 border border-festival-creamDark bg-festival-cream rounded-xl font-bold flex items-center justify-center hover:bg-festival-creamDark focus:outline-none"
+                      className="w-11 h-11 border border-festival-creamDark bg-festival-cream rounded-xl font-bold flex items-center justify-center hover:bg-festival-creamDark focus:outline-none cursor-pointer active:scale-95 transition-transform"
                     >
                       +
                     </button>
@@ -311,7 +311,7 @@ Please confirm my booking.`;
 
                 {/* Pickup Date */}
                 <div className="space-y-1">
-                  <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider">
+                  <label className="block text-[11px] sm:text-xs font-bold text-festival-maroon uppercase tracking-wider">
                     Pickup Date *
                   </label>
                   <input
@@ -321,7 +321,7 @@ Please confirm my booking.`;
                     onChange={handleInputChange}
                     className={`w-full px-4 py-2.5 bg-festival-cream/30 border ${
                       formErrors.pickupDate ? 'border-red-400 focus:ring-red-100' : 'border-festival-creamDark focus:ring-festival-maroon/20'
-                    } rounded-xl text-sm focus:outline-none focus:ring-4 transition-all`}
+                    } rounded-xl text-base md:text-sm focus:outline-none focus:ring-4 transition-all`}
                   />
                   {formErrors.pickupDate && <p className="text-xs font-medium text-red-600">{formErrors.pickupDate}</p>}
                 </div>
@@ -329,7 +329,7 @@ Please confirm my booking.`;
 
               {/* Optional Message */}
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-festival-maroon uppercase tracking-wider">
+                <label className="block text-[11px] sm:text-xs font-bold text-festival-maroon uppercase tracking-wider">
                   Optional Instructions
                 </label>
                 <textarea
@@ -345,9 +345,9 @@ Please confirm my booking.`;
               {/* Submit CTA */}
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 py-4 bg-festival-maroon hover:bg-festival-maroonDark text-white font-bold rounded-2xl text-base transition-all duration-300 shadow-md hover:scale-[1.01] active:scale-[0.99] mt-6"
+                className="w-full flex items-center justify-center gap-2 py-3.5 sm:py-4 bg-festival-maroon hover:bg-festival-maroonDark text-white font-bold rounded-2xl text-sm sm:text-base transition-all duration-300 shadow-md hover:scale-[1.01] active:scale-[0.99] mt-6 cursor-pointer"
               >
-                <ShoppingBag className="w-5 h-5" /> Book Ganesha via WhatsApp
+                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" /> Book Ganesha via WhatsApp
               </button>
             </form>
           </div>
