@@ -1,4 +1,4 @@
-# Ganesh Idol Catalog & WhatsApp Booking Website
+# Ganesh Idol Booking using WhatsApp Booking Website
 
 A complete, production-ready full-stack website for local Ganesh idol manufacturing businesses. This application allows customers to browse handcrafted Ganesha models, view detailed specifications (size, materials, organic coloring highlights), and prepare a booking request that transfers directly to WhatsApp. 
 
