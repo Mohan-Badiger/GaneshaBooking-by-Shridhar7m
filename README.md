@@ -163,7 +163,7 @@ To build a single bundled package where the Express server serves both the APIs 
 
 ---
 
-## ☁️ Vercel Deployment (One-Click Serverless)
+## ☁️ Vercel Deployment
 
 The project is pre-configured with `vercel.json` and a root `package.json` to deploy seamlessly to Vercel as a single serverless monorepo application:
 
