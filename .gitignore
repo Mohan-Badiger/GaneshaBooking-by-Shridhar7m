@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 .pnpm-store/
+/package-lock.json
 
 # Local configuration files
 .env
