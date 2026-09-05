@@ -57,6 +57,15 @@ try {
   console.warn('Could not create uploads directory (might be read-only file system):', err.message);
 }
 
+// Request logging & Vercel URL normalization middleware
+app.use((req, res, next) => {
+  if (req.url.startsWith('/api/index.js')) {
+    req.url = req.url.replace('/api/index.js', '') || '/';
+  }
+  console.log(`[${req.method}] ${req.url} (original: ${req.originalUrl})`);
+  next();
+});
+
 // Import Media model for persistent image fallback
 const Media = require('./models/Media');
 const fallbackPlaceholderPath = path.join(__dirname, '../frontend/public/artisan_clay_ganesha.webp');
@@ -95,18 +104,45 @@ const servePersistentMedia = async (req, res) => {
       return res.sendFile(fallbackPlaceholderPath);
     }
 
-    return res.status(404).send('Image not found');
+    return res.status(404).json({ success: false, message: 'Image not found' });
   } catch (err) {
     console.error('Error retrieving persistent media from MongoDB:', err);
-    return res.status(500).send('Error loading image');
+    return res.status(500).json({ success: false, message: 'Error loading image' });
   }
 };
 
 app.get('/uploads/:filename', servePersistentMedia);
 app.get('/api/uploads/:filename', servePersistentMedia);
 
-// Mount REST APIs
+// Health check endpoints for root and /api
+app.get('/', (req, res, next) => {
+  const frontendDistPath = path.join(__dirname, '../frontend/dist');
+  if (process.env.NODE_ENV === 'production' && fs.existsSync(frontendDistPath)) {
+    return res.sendFile(path.resolve(frontendDistPath, 'index.html'));
+  }
+  res.status(200).json({
+    success: true,
+    message: 'Ganesha Booking Business API is running successfully',
+    status: 'online',
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/api', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Ganesha Booking REST API is active',
+    endpoints: {
+      idols: '/api/idols',
+      settings: '/api/settings',
+      adminLogin: '/api/admin/login'
+    }
+  });
+});
+
+// Mount REST APIs under /api and root / (to support both direct and proxy requests)
 app.use('/api', apiRoutes);
+app.use('/', apiRoutes);
 
 // Fallback error handlers
 app.use((err, req, res, next) => {
@@ -114,12 +150,11 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({
     success: false,
     message: err.message || 'An unexpected server error occurred',
-    // Do not leak stack trace in production env
     error: process.env.NODE_ENV === 'production' ? {} : err.stack,
   });
 });
 
-// Serve frontend build in production if the folder exists
+// Serve frontend build in production if the folder exists, otherwise return clean 404
 const frontendDistPath = path.join(__dirname, '../frontend/dist');
 if (process.env.NODE_ENV === 'production' && fs.existsSync(frontendDistPath)) {
   app.use(express.static(frontendDistPath, { maxAge: '1d', etag: true }));
@@ -128,8 +163,11 @@ if (process.env.NODE_ENV === 'production' && fs.existsSync(frontendDistPath)) {
     res.sendFile(path.resolve(frontendDistPath, 'index.html'));
   });
 } else {
-  app.get('*', (req, res) => {
-    res.send('Ganesha Booking Business API is running successfully.');
+  app.use((req, res) => {
+    res.status(404).json({
+      success: false,
+      message: `Route ${req.method} ${req.originalUrl || req.url} not found on this server.`
+    });
   });
 }
 
