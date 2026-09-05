@@ -58,16 +58,41 @@ const upload = multer({
   limits: { fileSize: 15 * 1024 * 1024 }, // 15MB limit
 });
 
-// Helper function to compress and convert local file to WebP
+const Media = require('../models/Media');
+
+// Helper function to compress and convert local file to WebP, saving to disk and MongoDB
 const compressLocalToWebp = async (file) => {
   try {
     const webpFilename = path.basename(file.path, path.extname(file.path)) + '.webp';
     const webpPath = path.join(path.dirname(file.path), webpFilename);
 
-    await sharp(file.path)
+    const webpBuffer = await sharp(file.path)
       .resize({ width: 1000, fit: 'inside', withoutEnlargement: true })
       .webp({ quality: 80 })
-      .toFile(webpPath);
+      .toBuffer();
+
+    // Write compressed copy to local cache directory
+    try {
+      await fs.promises.writeFile(webpPath, webpBuffer);
+    } catch (writeErr) {
+      console.warn('Could not write to local disk cache:', writeErr.message);
+    }
+
+    // Persist permanently in MongoDB Media collection
+    try {
+      await Media.findOneAndUpdate(
+        { filename: webpFilename },
+        {
+          filename: webpFilename,
+          data: webpBuffer,
+          contentType: 'image/webp',
+          size: webpBuffer.length,
+        },
+        { upsert: true, new: true }
+      );
+    } catch (dbErr) {
+      console.error('Failed to persist image to MongoDB Media:', dbErr);
+    }
 
     // Delete original file to save space
     try {
@@ -78,8 +103,25 @@ const compressLocalToWebp = async (file) => {
 
     return `/uploads/${webpFilename}`;
   } catch (err) {
-    console.error('Local WebP compression failed, returning original path:', err);
-    return `/uploads/${path.basename(file.path)}`;
+    console.error('Local WebP compression failed, attempting raw storage fallback:', err);
+    try {
+      const rawFilename = path.basename(file.path);
+      const rawBuffer = await fs.promises.readFile(file.path);
+      await Media.findOneAndUpdate(
+        { filename: rawFilename },
+        {
+          filename: rawFilename,
+          data: rawBuffer,
+          contentType: file.mimetype || 'image/jpeg',
+          size: rawBuffer.length,
+        },
+        { upsert: true, new: true }
+      );
+      return `/uploads/${rawFilename}`;
+    } catch (rawErr) {
+      console.error('Failed fallback saving raw file:', rawErr);
+      return `/uploads/${path.basename(file.path)}`;
+    }
   }
 };
 

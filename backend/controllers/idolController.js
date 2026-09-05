@@ -1,6 +1,28 @@
 const Idol = require('../models/Idol');
+const Media = require('../models/Media');
 const fs = require('fs');
 const path = require('path');
+
+const deleteLocalOrDbImage = async (img) => {
+  if (img && img.startsWith('/uploads/')) {
+    const filename = path.basename(img);
+    try {
+      await Media.deleteOne({ filename });
+    } catch (dbErr) {
+      console.error(`Failed to delete media ${filename} from DB:`, dbErr);
+    }
+    const isVercel = process.env.VERCEL || process.env.NODE_ENV === 'production';
+    const uploadDir = isVercel ? '/tmp' : path.join(__dirname, '../uploads');
+    const filePath = path.join(uploadDir, filename);
+    if (fs.existsSync(filePath)) {
+      try {
+        fs.unlinkSync(filePath);
+      } catch (err) {
+        console.error(`Failed to delete local file: ${filePath}`, err);
+      }
+    }
+  }
+};
 
 // @desc    Get all idols (public)
 // @route   GET /api/idols
@@ -159,21 +181,12 @@ const updateIdol = async (req, res) => {
 
     const { name, description, height, width, material, price, images, features, availability, featured, displayOrder } = req.body;
 
-    // Detect deleted images if they are stored locally and remove from filesystem
+    // Detect deleted images if they are stored locally and remove from DB and filesystem
     if (images && Array.isArray(images)) {
       const removedImages = idol.images.filter((img) => !images.includes(img));
-      removedImages.forEach((img) => {
-        if (img.startsWith('/uploads/')) {
-          const filePath = path.join(__dirname, '..', img);
-          if (fs.existsSync(filePath)) {
-            try {
-              fs.unlinkSync(filePath);
-            } catch (err) {
-              console.error(`Failed to delete file: ${filePath}`, err);
-            }
-          }
-        }
-      });
+      for (const img of removedImages) {
+        await deleteLocalOrDbImage(img);
+      }
     }
 
     // Update fields
@@ -215,19 +228,10 @@ const deleteIdol = async (req, res) => {
       return res.status(404).json({ success: false, message: 'Ganesha idol not found' });
     }
 
-    // Remove associated local files
-    idol.images.forEach((img) => {
-      if (img.startsWith('/uploads/')) {
-        const filePath = path.join(__dirname, '..', img);
-        if (fs.existsSync(filePath)) {
-          try {
-            fs.unlinkSync(filePath);
-          } catch (err) {
-            console.error(`Failed to delete local file: ${filePath}`, err);
-          }
-        }
-      }
-    });
+    // Remove associated media files from DB and filesystem
+    for (const img of idol.images) {
+      await deleteLocalOrDbImage(img);
+    }
 
     await Idol.findByIdAndDelete(id);
     res.status(200).json({ success: true, message: 'Ganesha idol deleted successfully' });

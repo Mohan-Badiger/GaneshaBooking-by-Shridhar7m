@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Plus, Search, Edit2, Trash2, Check, X, Star, Ruler, SlidersHorizontal, ArrowUpDown } from 'lucide-react';
 import { TableRowSkeleton } from '../../components/LoadingSkeleton';
 import Toast from '../../components/Toast';
-import { getFullImageUrl } from '../../utils/urlHelper';
+import { getFullImageUrl, handleImageError, FALLBACK_IMAGE } from '../../utils/urlHelper';
 
 const IdolManagement = () => {
   const [idols, setIdols] = useState([]);
@@ -96,7 +96,7 @@ const IdolManagement = () => {
   // Helper for rendering image previews safely
   const getPrimaryImage = (images) => {
     if (!images || images.length === 0) {
-      return 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=150';
+      return FALLBACK_IMAGE;
     }
     return getFullImageUrl(images[0]);
   };
@@ -208,6 +208,7 @@ const IdolManagement = () => {
                           src={getPrimaryImage(idol.images)}
                           alt={idol.name}
                           className="w-full h-full object-cover"
+                          onError={handleImageError}
                         />
                       </div>
                       <div>
@@ -315,6 +316,7 @@ const IdolManagement = () => {
                     src={getPrimaryImage(idol.images)}
                     alt={idol.name}
                     className="w-full h-full object-cover"
+                    onError={handleImageError}
                   />
                 </div>
                 <div className="space-y-1">
