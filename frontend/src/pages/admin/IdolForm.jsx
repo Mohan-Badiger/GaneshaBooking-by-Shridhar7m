@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { ChevronLeft, Plus, Trash2, Upload, Star, Check, Sparkles, Image as ImageIcon } from 'lucide-react';
 import Toast from '../../components/Toast';
-import { getFullImageUrl as resolveFullImageUrl } from '../../utils/urlHelper';
+import { getFullImageUrl, handleImageError, FALLBACK_IMAGE } from '../../utils/urlHelper';
 
 const IdolForm = () => {
   const { id } = useParams();
@@ -369,6 +369,7 @@ const IdolForm = () => {
                       src={getFullImageUrl(imgUrl)}
                       alt={`Preview ${idx}`}
                       className="w-full h-full object-cover"
+                      onError={handleImageError}
                     />
 
                     {/* Badge showing Primary */}

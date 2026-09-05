@@ -57,8 +57,53 @@ try {
   console.warn('Could not create uploads directory (might be read-only file system):', err.message);
 }
 
-// Serve uploads static folder with caching (30 days)
+// Import Media model for persistent image fallback
+const Media = require('./models/Media');
+const fallbackPlaceholderPath = path.join(__dirname, '../frontend/public/artisan_clay_ganesha.webp');
+
+// Serve uploads static folder with caching (30 days) if file exists on disk
 app.use('/uploads', express.static(uploadDir, { maxAge: '30d' }));
+
+// Persistent image handler for files that were lost from ephemeral disk /tmp
+const servePersistentMedia = async (req, res) => {
+  try {
+    const filename = path.basename(req.params.filename);
+    const localFilePath = path.join(uploadDir, filename);
+
+    if (fs.existsSync(localFilePath)) {
+      return res.sendFile(localFilePath);
+    }
+
+    const media = await Media.findOne({ filename });
+    if (media && media.data) {
+      // Re-populate disk cache if possible
+      try {
+        fs.writeFileSync(localFilePath, media.data);
+      } catch (cacheErr) {
+        // Non-critical if read-only
+      }
+
+      res.set('Content-Type', media.contentType || 'image/webp');
+      res.set('Cache-Control', 'public, max-age=2592000, immutable');
+      return res.send(media.data);
+    }
+
+    // If not found in DB or disk, serve high quality default placeholder to avoid broken image / alt text
+    if (fs.existsSync(fallbackPlaceholderPath)) {
+      res.set('Content-Type', 'image/webp');
+      res.set('Cache-Control', 'public, max-age=86400');
+      return res.sendFile(fallbackPlaceholderPath);
+    }
+
+    return res.status(404).send('Image not found');
+  } catch (err) {
+    console.error('Error retrieving persistent media from MongoDB:', err);
+    return res.status(500).send('Error loading image');
+  }
+};
+
+app.get('/uploads/:filename', servePersistentMedia);
+app.get('/api/uploads/:filename', servePersistentMedia);
 
 // Mount REST APIs
 app.use('/api', apiRoutes);

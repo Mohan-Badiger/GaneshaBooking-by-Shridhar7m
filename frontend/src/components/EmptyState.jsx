@@ -35,7 +35,7 @@ const EmptyState = ({
             </Link>
           )}
           <a
-            href="https://wa.me/919876543210" // Will override in actual integration with settings WHATSAPP_NUMBER
+            href="https://wa.me/917411431502" // Will override in actual integration with settings WHATSAPP_NUMBER
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-2.5 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition-all text-sm shadow-sm"

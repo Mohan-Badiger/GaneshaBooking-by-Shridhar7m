@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { getFullImageUrl } from '../utils/urlHelper';
+import { getFullImageUrl, handleImageError, FALLBACK_IMAGE } from '../utils/urlHelper';
 
 const IdolGallery = ({ images = [] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Fallback if no images are loaded
-  const fallbackImage = 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800';
-  const galleryList = images.length > 0 ? images : [fallbackImage];
+  const galleryList = images.length > 0 ? images : [FALLBACK_IMAGE];
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev === 0 ? galleryList.length - 1 : prev - 1));
@@ -30,6 +29,7 @@ const IdolGallery = ({ images = [] }) => {
           src={getImageUrl(galleryList[activeIndex])}
           alt={`Ganesha View ${activeIndex + 1}`}
           className="w-full h-full object-cover transition-all duration-300"
+          onError={handleImageError}
         />
 
         {/* Carousel Arrow Controllers (Only if > 1 images) */}
@@ -75,6 +75,7 @@ const IdolGallery = ({ images = [] }) => {
                 src={getImageUrl(img)}
                 alt={`Thumbnail ${idx + 1}`}
                 className="w-full h-full object-cover"
+                onError={handleImageError}
               />
             </button>
           ))}

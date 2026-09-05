@@ -4,7 +4,7 @@ import axios from 'axios';
 import { ChevronLeft, ShoppingBag, Send, CheckCircle2, MessageSquare, AlertCircle } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
 import { DetailSkeleton } from '../components/LoadingSkeleton';
-import { getFullImageUrl } from '../utils/urlHelper';
+import { getFullImageUrl, handleImageError, FALLBACK_IMAGE } from '../utils/urlHelper';
 
 const Booking = () => {
   const { id } = useParams();
@@ -200,10 +200,11 @@ Please confirm my booking.`;
                   src={
                     idol.images && idol.images.length > 0
                       ? getFullImageUrl(idol.images[0])
-                      : 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=200'
+                      : FALLBACK_IMAGE
                   }
                   alt={idol.name}
                   className="w-full h-full object-cover"
+                  onError={handleImageError}
                 />
               </div>
               <div className="space-y-0.5 sm:space-y-1">

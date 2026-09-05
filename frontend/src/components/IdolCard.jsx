@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Ruler, ShoppingBag, Eye, Award } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
-import { getFullImageUrl } from '../utils/urlHelper';
+import { getFullImageUrl, handleImageError, FALLBACK_IMAGE } from '../utils/urlHelper';
 
 const IdolCard = ({ idol }) => {
   const { settings } = useSettings();
@@ -17,7 +17,7 @@ const IdolCard = ({ idol }) => {
 
   const primaryImage = images && images.length > 0
     ? getFullImageUrl(images[0])
-    : 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800';
+    : FALLBACK_IMAGE;
 
   const whatsappNum = settings?.whatsappNumber?.replace(/\D/g, '') || '919876543210';
 
@@ -37,6 +37,7 @@ const IdolCard = ({ idol }) => {
           alt={name}
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           loading="lazy"
+          onError={handleImageError}
         />
         {/* Availability Overlay */}
         {!availability && (
